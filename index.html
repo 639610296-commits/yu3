@@ -16,443 +16,245 @@
     font-family:"PingFang SC","Microsoft YaHei",sans-serif;
 }
 
-
 body{
     background:#edf5ff;
     padding:15px;
 }
-
 
 .container{
     max-width:700px;
     margin:auto;
 }
 
-
-/* 顶部宣传图 */
-
-.banner img{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:18px;
-    object-fit:cover;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-
-
 /* 公告 */
 
 .notice{
-
     margin-top:15px;
-
     background:#fff;
-
     border-radius:14px;
-
     padding:10px 14px;
-
     box-shadow:0 5px 15px rgba(0,0,0,.05);
-
     display:flex;
-
     align-items:center;
-
     overflow:hidden;
-
 }
-
-
 
 .notice-title{
-
     font-size:15px;
-
     font-weight:700;
-
     color:#3b6ff7;
-
     white-space:nowrap;
-
     margin-right:10px;
-
 }
-
-
 
 .notice-box{
-
     flex:1;
-
     overflow:hidden;
-
 }
-
-
 
 .notice-list{
-
     display:flex;
-
     white-space:nowrap;
-
     animation:noticeMove 10s linear infinite;
-
 }
-
-
 
 .notice-list div{
-
     font-size:14px;
-
     color:#555;
-
     margin-right:80px;
-
     flex-shrink:0;
-
 }
-
-
 
 @keyframes noticeMove{
+    0%{
+        transform:translateX(100%);
+    }
 
-0%{
-
-transform:translateX(100%);
-
+    100%{
+        transform:translateX(-100%);
+    }
 }
-
-100%{
-
-transform:translateX(-100%);
-
-}
-
-}
-
-
-
-
 
 /* 联系 */
 
 .contact{
-
     margin-top:15px;
-
     background:#fff;
-
     border-radius:18px;
-
     padding:18px;
-
     box-shadow:0 5px 15px rgba(0,0,0,.05);
-
 }
-
-
 
 .contact div{
-
     margin:8px 0;
-
     font-size:16px;
-
 }
-
-
-
-
 
 /* 标题 */
 
 .title{
-
     margin:30px 0 18px;
-
     text-align:center;
-
     font-size:28px;
-
     font-weight:700;
-
     color:#3b6ff7;
-
 }
 
+/* 卡片区域 */
 
-
-
+.grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:18px;
+    width:100%;
+}
 
 /* 卡片 */
 
-.grid{
-
-    display:grid;
-
-    gap:18px;
-
-}
-
-
-
-
 .card{
-
     display:block;
-
+    width:100%;
     background:#fff;
-
     border-radius:24px;
-
     padding:18px;
-
     text-decoration:none;
-
     color:#222;
-
     box-shadow:0 10px 24px rgba(0,0,0,.08);
-
     transition:.25s;
-
 }
-
-
-
 
 .card:hover{
-
     transform:translateY(-3px);
-
 }
-
-
-
-
 
 .card-top{
-
     display:flex;
-
     align-items:center;
-
     gap:16px;
-
     margin-bottom:18px;
-
 }
-
-
-
-
 
 .card img{
-
     width:72px;
-
     height:72px;
-
     border-radius:50%;
-
     object-fit:cover;
-
     flex-shrink:0;
-
 }
-
-
-
 
 .card-info{
-
     flex:1;
-
+    min-width:0;
 }
-
-
-
-
 
 .card-info h3{
-
     font-size:24px;
-
     color:#e53935;
-
     margin:0;
-
     font-weight:700;
-
 }
-
-
-
 
 .card-info p{
-
     margin-top:8px;
-
     font-size:15px;
-
     color:#777;
-
 }
 
-
-
-
+/* 按钮 */
 
 .card-btn{
-
     height:50px;
-
     border-radius:999px;
-
     background:linear-gradient(90deg,#47c7ff,#1c8cff);
-
     color:#fff;
-
     font-size:18px;
-
     font-weight:bold;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
 }
 
-
-
-
+/* 底部 */
 
 .footer{
-
     text-align:center;
-
     padding:35px 20px;
-
     color:#666;
-
     font-size:14px;
-
 }
-
-
 
 </style>
 
 </head>
 
-
 <body>
 
-
 <div class="container">
-
-
-
-
 
 
 <!-- 公告轮播 -->
 
 <div class="notice">
 
-
 <div class="notice-title">
-
 📢 公告
-
 </div>
-
-
 
 <div class="notice-box">
 
-
 <div class="notice-list">
-
 
 <div>充值累计700返488现金🧧</div>
 <div>充值累计1000返588现金🧧</div>
 
+</div>
 
-
+</div>
 
 </div>
 
 
-</div>
-
-
-</div>
-
-
-
-
+<!-- 联系 -->
 
 <div class="contact">
-
 
 <div>👤返现专员辣椒聊：1552371</div>
 
 <div>👤返现专员旺商聊：27449136</div>
 
-
 </div>
 
 
-
+<!-- 官方直营 -->
 
 <div class="title">
-
 官方直营
-
 </div>
-
-
 
 <div class="grid">
 
 
-
+<!-- 纵横国际 -->
 
 <a href="https://xnqwzf.tckqxx.com/app/register.php?site_id=1067&topId=8041785170263560&selfPlanId=46627" target="_blank" class="card">
 
-
 <div class="card-top">
-
 
 <img src="https://i.ibb.co/jvhkZJny/IMG-9494.jpg" alt="纵横国际">
 
-
-
 <div class="card-info">
-
 
 <h3>纵横国际</h3>
 
-
-<p>新台必爆！充700秒返500现金🧧</p>
-
+<p>新台必爆！充700返488现金🧧</p>
 
 </div>
 
-
 </div>
-
-
 
 <div class="card-btn">
-
 进入游戏
+</div>
 
 </a>
 
@@ -481,111 +283,76 @@ transform:translateX(-100%);
 
 </a>
 
-
+</div>
 
 
 <!-- 试玩模拟 -->
 
 <div class="title">
-
 试玩模拟
-
 </div>
-
-
 
 <div class="grid">
 
 
-
-
+<!-- PG模拟器 -->
 
 <a href="https://321.ad" target="_blank" class="card">
 
-
 <div class="card-top">
-
 
 <img src="https://i.ibb.co/Y4JK9GpW/827864-A3-9-B7-B-4-E46-952-F-0-BA245-FC816-B.png" alt="PG模拟器">
 
-
-
 <div class="card-info">
-
 
 <h3>PG模拟器</h3>
 
-
 <p>免费试玩体验</p>
 
-
 </div>
 
-
 </div>
-
-
 
 <div class="card-btn">
-
 立即试玩
-
 </div>
-
 
 </a>
 
 
-
-
+<!-- 辣椒聊 -->
 
 <a href="https://www.lajiaoliao.com" target="_blank" class="card">
 
-
 <div class="card-top">
-
 
 <img src="https://i.ibb.co/1thZYfBY/IMG-9993.png" alt="辣椒聊下载">
 
-
-
 <div class="card-info">
-
 
 <h3>辣椒聊</h3>
 
-
 <p>官方最新版｜安全下载</p>
 
-
 </div>
 
-
 </div>
-
-
 
 <div class="card-btn">
-
 立即下载
-
 </div>
 
-
 </a>
+
 </div>
 
 
 <div class="footer">
-
 © 并存 · 官方导航
-
 </div>
 
 
 </div>
-
 
 </body>
-
 </html>
