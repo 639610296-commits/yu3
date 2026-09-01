@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -135,7 +139,15 @@ body{
     margin-bottom:18px;
 }
 
-/* 图片轮播 */
+.card img{
+    width:72px;
+    height:72px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+/* 图片轮播，只针对 .card-slider */
 
 .card-slider{
     position:relative;
@@ -148,8 +160,8 @@ body{
 
 .card-slider img{
     position:absolute;
-    left:0;
     top:0;
+    left:0;
     width:72px;
     height:72px;
     border-radius:50%;
@@ -211,26 +223,30 @@ body{
 
 <div class="container">
 
+<!-- 你原来的内容和平台卡片放这里，不做任何修改 -->
 
+</div>
 
-/* 图片自动轮播 */
+<script>
 
-const sliders = document.querySelectorAll(".card-slider");
+/* 图片轮播 */
 
-sliders.forEach(slider => {
+document.querySelectorAll(".card-slider").forEach(function(slider){
 
     const images = slider.querySelectorAll("img");
     let index = 0;
 
-    setInterval(() => {
+    if(images.length > 0){
+        images[0].classList.add("active");
+    }
+
+    setInterval(function(){
+
+        if(images.length <= 1) return;
 
         images[index].classList.remove("active");
 
-        index++;
-
-        if(index >= images.length){
-            index = 0;
-        }
+        index = (index + 1) % images.length;
 
         images[index].classList.add("active");
 
