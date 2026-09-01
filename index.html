@@ -135,12 +135,31 @@ body{
     margin-bottom:18px;
 }
 
-.card img{
+/* 图片轮播 */
+
+.card-slider{
+    position:relative;
+    width:72px;
+    height:72px;
+    flex-shrink:0;
+    overflow:hidden;
+    border-radius:50%;
+}
+
+.card-slider img{
+    position:absolute;
+    left:0;
+    top:0;
     width:72px;
     height:72px;
     border-radius:50%;
     object-fit:cover;
-    flex-shrink:0;
+    opacity:0;
+    transition:opacity .5s ease;
+}
+
+.card-slider img.active{
+    opacity:1;
 }
 
 .card-info{
@@ -191,6 +210,38 @@ body{
 <body>
 
 <div class="container">
+
+
+
+/* 图片自动轮播 */
+
+const sliders = document.querySelectorAll(".card-slider");
+
+sliders.forEach(slider => {
+
+    const images = slider.querySelectorAll("img");
+    let index = 0;
+
+    setInterval(() => {
+
+        images[index].classList.remove("active");
+
+        index++;
+
+        if(index >= images.length){
+            index = 0;
+        }
+
+        images[index].classList.add("active");
+
+    },3000);
+
+});
+
+</script>
+
+</body>
+</html>
 
 
 <!-- 公告轮播 -->
