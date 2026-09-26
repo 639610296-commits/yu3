@@ -4,424 +4,688 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
 
 <title>风花雪月官方网站</title>
 
-<link rel="preconnect" href="https://i.ibb.co" crossorigin>
-<link rel="dns-prefetch" href="//i.ibb.co">
-
 <meta name="theme-color" content="#eef4ff">
 
+<meta name="color-scheme" content="light">
+
+<meta http-equiv="x-dns-prefetch-control" content="on">
+
+<!-- 图片服务器预连接 -->
+
+<link rel="preconnect" href="https://i.ibb.co" crossorigin>
+
+<link rel="dns-prefetch" href="//i.ibb.co">
+
+<!-- Banner -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/qMYLGXYq/IMG-0538.jpg">
+
+<!-- 西海岸 -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/TxC9vJJt/IMG-0613.jpg">
+
+<!-- 纵横国际 -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/jvhkZJny/IMG-9494.jpg">
+
+<!-- 胜天国际 -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/r2ftrgKH/56.jpg">
+
+<!-- PG -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png">
+
+<!-- 旺商聊 -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/pjH9H2xz/IMG-0527.jpg">
+
+<!-- 福利 -->
+
+<link rel="preload" as="image"
+href="https://i.ibb.co/6cx2RzSH/6-B5606-F8-977-E-488-C-AAB9-D92-F562-B9-A1-F.png">
+
 <style>
+/* =========================
+   全局
+========================= */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
     font-family:"PingFang SC","Microsoft YaHei",sans-serif;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
-    background:#eef4ff;
+    background:
+    linear-gradient(180deg,#f8fbff 0%,#eef4ff 40%,#edf3ff 100%);
     color:#222;
-    padding:12px;
+    padding:14px;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
 .container{
     max-width:720px;
-    margin:auto;
+    margin:0 auto;
 }
 
-/* Banner */
+/* =========================
+   Banner
+========================= */
 
 .banner{
-    border-radius:18px;
+    position:relative;
     overflow:hidden;
-    margin-bottom:14px;
-    box-shadow:0 6px 20px rgba(0,0,0,.08);
+    border-radius:24px;
+    margin-bottom:18px;
+    background:#fff;
+    box-shadow:
+        0 10px 30px rgba(64,95,190,.10),
+        0 2px 8px rgba(0,0,0,.05);
 }
 
 .banner img{
     width:100%;
     display:block;
     object-fit:cover;
+    border-radius:24px;
 }
+
+/* Banner 顶部柔光 */
+
+.banner::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    height:70px;
+    background:linear-gradient(
+        rgba(255,255,255,.18),
+        rgba(255,255,255,0)
+    );
+    pointer-events:none;
+}
+/*==========================
+  公告
+==========================*/
+
 .notice{
     display:flex;
     align-items:center;
-    background:#fff;
-    padding:12px;
-    border-radius:16px;
-    margin-bottom:14px;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+    gap:12px;
+    padding:14px 16px;
+    margin-bottom:18px;
+
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,.8);
+
+    box-shadow:
+        0 8px 24px rgba(68,102,255,.08),
+        inset 0 1px 0 rgba(255,255,255,.9);
+
+    overflow:hidden;
 }
 
 .notice-title{
-    color:#4d67ff;
-    font-weight:bold;
-    margin-right:10px;
+
     flex-shrink:0;
+
+    width:62px;
+    height:34px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:30px;
+
+    background:linear-gradient(135deg,#5d7cff,#8ab9ff);
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    box-shadow:0 4px 12px rgba(93,124,255,.28);
 }
 
 .notice-box{
+
     flex:1;
+
     overflow:hidden;
+
     position:relative;
 }
 
+.notice-box::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:24px;
+
+    background:linear-gradient(to right,#fff,rgba(255,255,255,0));
+
+    z-index:2;
+}
+
+.notice-box::after{
+
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    top:0;
+    bottom:0;
+
+    width:24px;
+
+    background:linear-gradient(to left,#fff,rgba(255,255,255,0));
+
+    z-index:2;
+}
+
 .notice-list{
+
     display:flex;
+
     width:max-content;
+
     white-space:nowrap;
-    animation:noticeMove 18s linear infinite;
+
+    animation:noticeMove 24s linear infinite;
 }
 
 .notice-list div{
-    color:#666;
+
+    padding-right:120px;
+
+    color:#555;
+
     font-size:14px;
-    line-height:20px;
-    padding-right:80px;
+
+    font-weight:500;
+
+    line-height:22px;
 }
 
 @keyframes noticeMove{
-    0%{
+
+    from{
         transform:translateX(0);
     }
-    100%{
+
+    to{
         transform:translateX(-50%);
     }
-}
 
-.contact{
-    background:#fff;
-    border-radius:16px;
-    padding:12px;
-    margin-bottom:14px;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
 }
-
-.contact-title{
-    color:#4d67ff;
-    font-weight:bold;
-    margin-bottom:6px;
-}
-
-.contact p{
-    color:#666;
-    font-size:14px;
-}
+/*==========================
+  分区标题
+==========================*/
 
 .section-title{
-    font-size:18px;
-    font-weight:bold;
-    margin:18px 0 12px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    color:#2f3542;
+
+    margin:26px 0 16px;
+
+    padding-left:16px;
+
 }
+
+.section-title::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    width:5px;
+
+    height:24px;
+
+    border-radius:30px;
+
+    background:linear-gradient(180deg,#5b7cff,#87baff);
+
+}
+
+/*==========================
+  平台排列
+==========================*/
 
 .grid{
+
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
-    gap:12px;
+
+    gap:14px;
+
 }
 
+/*==========================
+  平台卡片
+==========================*/
+
 .card{
+
     display:block;
+
     text-decoration:none;
+
     color:#222;
-    background:#fff;
-    border-radius:16px;
-    padding:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,.06);
-    transition:.2s;
+
+    background:#ffffff;
+
+    border-radius:22px;
+
+    padding:16px 12px;
+
+    border:1px solid rgba(92,122,255,.08);
+
+    box-shadow:
+        0 10px 24px rgba(53,88,188,.08);
+
+    transition:.25s ease;
+
+    overflow:hidden;
+
+    position:relative;
+
+}
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    top:0;
+
+    height:4px;
+
+    background:linear-gradient(90deg,#5b7cff,#89bcff);
+
+    opacity:0;
+
+    transition:.25s;
+
 }
 
 .card:active{
+
     transform:scale(.97);
+
 }
-</style>
-</head>
 
-<body>
+@media(hover:hover){
 
-<div class="container">
+.card:hover{
 
-<!-- Banner -->
-<div class="banner">
-    <img
-        src="https://i.ibb.co/qMYLGXYq/IMG-0538.jpg"
-        alt="官方宣传图"
-        loading="eager"
-        decoding="async">
-</div>
+    transform:translateY(-5px);
 
-<!-- 公告 -->
-<div class="notice">
+    box-shadow:
 
-    <div class="notice-title">公告</div>
+    0 18px 36px rgba(73,102,215,.15);
 
-    <div class="notice-box">
+}
 
-        <div class="notice-list">
+.card:hover::before{
 
-            <div>
-                请认准官方导航丨🔥【并存主推】新用户注册充值满700联系我返388现金🧧 👤旺旺客服：【6465401】
-            </div>
+    opacity:1;
 
-            <div>
-                请认准官方导航丨🔥【并存主推】新用户注册充值满700联系我返388现金🧧 👤旺旺客服：【6465401】
-            </div>
+}
 
-        </div>
+}
+/*==========================
+  平台内容
+==========================*/
 
-    </div>
+.card-top{
 
-</div>
+    display:flex;
 
-<!-- 官方直营 -->
-<div class="section-title">
-    官方直营
-</div>
+    flex-direction:column;
 
-<div class="grid">
-<!-- 西海岸 -->
+    align-items:center;
 
-<a href="https://moffym.hcjwj.com/app/register.php?site_id=2090&pt=756DC84D-3FE7-7983-428C-A5CE2F4F0401"
-target="_blank"
-class="card">
+    justify-content:center;
 
-<div class="card-top">
+}
 
-<img
-src="https://i.ibb.co/TxC9vJJt/IMG-0613.jpg"
-loading="lazy"
-decoding="async"
-width="56"
-height="56"
-alt="西海岸">
+/*==========================
+  平台图标
+==========================*/
 
-<div class="card-info">
+.card-top img{
 
-<h3>西海岸</h3>
+    width:72px;
 
-</div>
+    height:72px;
 
-</div>
+    display:block;
 
-<div class="card-btn">
-进入
-</div>
+    object-fit:cover;
 
-</a>
+    border-radius:22px;
 
+    background:#f7f9ff;
 
-<!-- 纵横国际 -->
+    padding:3px;
 
-<a href="https://xnqwzf.tckqxx.com/app/register.php?site_id=1067&topId=8041785170263560&selfPlanId=46627"
-target="_blank"
-class="card">
+    border:1px solid rgba(255,255,255,.95);
 
-<div class="card-top">
+    box-shadow:
+        0 10px 24px rgba(0,0,0,.10),
+        0 3px 10px rgba(90,120,255,.12);
 
-<img
-src="https://i.ibb.co/jvhkZJny/IMG-9494.jpg"
-loading="lazy"
-decoding="async"
-width="56"
-height="56"
-alt="纵横国际">
+    transition:.30s;
 
-<div class="card-info">
+}
 
-<h3>纵横国际</h3>
+/* 点击反馈 */
 
-</div>
+.card:active .card-top img{
 
-</div>
+    transform:scale(.95);
 
-<div class="card-btn">
-进入
-</div>
+}
 
-</a>
+@media (hover:hover){
 
+.card:hover .card-top img{
 
-<!-- 胜天国际 -->
+    transform:translateY(-3px) scale(1.04);
 
-<a href="https://dspeoql.tprsmi.com/app/register.php?site_id=1058&topId=4171787508075321&selfPlanId=4133283"
-target="_blank"
-class="card">
+}
 
-<div class="card-top">
+}
 
-<img
-src="https://i.ibb.co/r2ftrgKH/56.jpg"
-loading="lazy"
-decoding="async"
-width="56"
-height="56"
-alt="胜天国际">
+/*==========================
+  平台名称
+==========================*/
 
-<div class="card-info">
+.card-info{
 
-<h3>胜天国际</h3>
+    width:100%;
 
-</div>
+    text-align:center;
 
-</div>
+    margin-top:12px;
 
-<div class="card-btn">
-进入
-</div>
+}
 
-</a>
-<!-- PG模拟器 -->
+.card-info h3{
 
-<a href="https://321.ad"
-target="_blank"
-rel="noopener noreferrer"
-class="card">
+    font-size:15px;
 
-<div class="card-top">
+    font-weight:700;
 
-<img
-src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png"
-loading="eager"
-fetchpriority="high"
-decoding="sync"
-width="56"
-height="56"
-alt="PG模拟器">
+    color:#2d2d2d;
 
-<div class="card-info">
+    line-height:22px;
 
-<h3>PG模拟器</h3>
+    overflow:hidden;
 
-</div>
+    white-space:nowrap;
 
-</div>
+    text-overflow:ellipsis;
 
-<div class="card-btn">
-立即试玩
-</div>
+}
 
-</a>
+/*==========================
+  按钮
+==========================*/
 
+.card-btn{
 
-<!-- 旺商聊 -->
+    margin-top:14px;
 
-<a href="https://旺旺商聊.cc"
-target="_blank"
-rel="noopener noreferrer"
-class="card">
+    width:100%;
 
-<div class="card-top">
+    height:38px;
 
-<img
-src="https://i.ibb.co/pjH9H2xz/IMG-0527.jpg"
-loading="eager"
-fetchpriority="high"
-decoding="sync"
-width="56"
-height="56"
-alt="旺商聊">
+    display:flex;
 
-<div class="card-info">
+    align-items:center;
 
-<h3>旺商聊</h3>
+    justify-content:center;
 
-</div>
+    border-radius:999px;
 
-</div>
+    background:linear-gradient(135deg,#5b7cff,#8cc3ff);
 
-<div class="card-btn">
-立即下载
-</div>
+    color:#fff;
 
-</a>
+    font-size:13px;
 
+    font-weight:700;
 
-<!-- 加拿大预测网 -->
+    letter-spacing:.5px;
 
-<a href="https://www.dd28.ai"
-target="_blank"
-rel="noopener noreferrer"
-class="card">
+    box-shadow:
+        0 8px 18px rgba(91,124,255,.22);
 
-<div class="card-top">
+    transition:.25s;
 
-<img
-src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png"
-loading="eager"
-fetchpriority="high"
-decoding="sync"
-width="56"
-height="56"
-alt="加拿大预测网">
+}
 
-<div class="card-info">
+@media (hover:hover){
 
-<h3>加拿大预测网</h3>
+.card:hover .card-btn{
 
-</div>
+    filter:brightness(1.05);
 
-<div class="card-btn">
-点击进入
-</div>
+}
 
-</div>
+}
+/*==========================
+  Footer
+==========================*/
 
-</a>
+.footer{
 
+    margin:34px 0 16px;
 
-<!-- 深夜福利 -->
+    padding:22px 16px;
 
-<a href="https://ko799e.sm811.vip"
-target="_blank"
-rel="noopener noreferrer"
-class="card">
+    text-align:center;
 
-<div class="card-top">
+    background:#fff;
 
-<img
-src="https://i.ibb.co/6cx2RzSH/6-B5606-F8-977-E-488-C-AAB9-D92-F562-B9-A1-F.png"
-loading="eager"
-fetchpriority="high"
-decoding="sync"
-width="56"
-height="56"
-alt="深夜福利">
+    border-radius:22px;
 
-<div class="card-info">
+    border:1px solid rgba(90,120,255,.08);
 
-<h3>深夜福利</h3>
+    box-shadow:
+        0 8px 24px rgba(80,110,220,.08);
 
-</div>
+}
 
-</div>
+.footer div{
 
-<div class="card-btn">
-点击进入
-</div>
+    color:#7d8697;
 
-</a>
+    font-size:13px;
 
+    line-height:26px;
 
-</div>
+}
 
+.footer div:first-child{
 
-<!-- 底部 -->
+    color:#4f67ff;
 
-<div class="footer">
+    font-size:16px;
 
-<div>NG集团 · 品质打造品牌</div>
+    font-weight:700;
 
-<div>精选平台推荐与咨询服务，信息仅供参考</div>
+    margin-bottom:6px;
 
-<div>© 认准官方导航 · 绿色安全入口</div>
+}
 
-</div>
+/*==========================
+  图片优化
+==========================*/
 
-</div>
+img{
 
-</body>
-</html>
+    max-width:100%;
+
+    display:block;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+}
+
+/* 平台图片 */
+
+.card img{
+
+    background:#f7f9ff;
+
+}
+
+/* Banner图片 */
+
+.banner img{
+
+    background:#edf3ff;
+
+}
+
+/*==========================
+  手机适配
+==========================*/
+
+@media screen and (max-width:768px){
+
+.grid{
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:12px;
+
+}
+
+.card{
+
+    padding:14px 10px;
+
+}
+
+.card-top img{
+
+    width:66px;
+
+    height:66px;
+
+}
+
+.card-btn{
+
+    height:36px;
+
+    font-size:12px;
+
+}
+
+.section-title{
+
+    font-size:18px;
+
+}
+
+}
+
+/*==========================
+  小屏手机
+==========================*/
+
+@media screen and (max-width:390px){
+
+body{
+
+    padding:10px;
+
+}
+
+.grid{
+
+    gap:10px;
+
+}
+
+.card{
+
+    border-radius:18px;
+
+}
+
+.card-top img{
+
+    width:60px;
+
+    height:60px;
+
+}
+
+.card-info h3{
+
+    font-size:14px;
+
+}
+
+}
