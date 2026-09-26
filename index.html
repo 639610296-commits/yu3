@@ -8,7 +8,6 @@
 
 <title>风花雪月官方网站</title>
 
-<!-- 加速加载 -->
 <link rel="preconnect" href="https://i.ibb.co" crossorigin>
 <link rel="dns-prefetch" href="//i.ibb.co">
 
@@ -48,8 +47,7 @@ body{
     display:block;
     object-fit:cover;
 }
-
-/* 公告 */
+ /* 公告 */
 
 .notice{
     display:flex;
@@ -65,6 +63,7 @@ body{
     color:#4d67ff;
     font-weight:bold;
     margin-right:10px;
+    flex-shrink:0;
 }
 
 .notice-box{
@@ -73,30 +72,16 @@ body{
 }
 
 .notice-list{
-    display:flex;
+    display:block;
+    width:100%;
     white-space:nowrap;
-    width:max-content;
-    animation:noticeMove 18s linear infinite;
 }
 
 .notice-list div{
     color:#666;
-    margin-right:60px;
     font-size:14px;
+    line-height:20px;
 }
-
-@keyframes noticeMove{
-
-0%{
-transform:translateX(100%);
-}
-
-100%{
-transform:translateX(-100%);
-}
-
-}
-
 /* 联系方式 */
 
 .contact{
@@ -112,6 +97,7 @@ transform:translateX(-100%);
     font-size:15px;
 }
 
+
 /* 标题 */
 
 .title{
@@ -121,6 +107,8 @@ transform:translateX(-100%);
     font-weight:700;
     margin:20px 0 16px;
 }
+
+
 /* 官方直营（三列） */
 
 .grid{
@@ -130,21 +118,20 @@ transform:translateX(-100%);
     margin-top:12px;
 }
 
+
 /* 手机仍然保持三列 */
 
 @media(max-width:768px){
 
-.grid{
-    grid-template-columns:repeat(3,1fr);
-    gap:10px;
-}
+    .grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:10px;
+    }
 
 }
-
 /* 平台卡片 */
 
 .card{
-
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -161,22 +148,18 @@ transform:translateX(-100%);
     box-shadow:0 4px 12px rgba(0,0,0,.05);
 
     transition:.25s;
-
 }
 
 .card:hover{
-
     transform:translateY(-3px);
-
 }
-
-/* 图标 */
+/* 平台图片 */
 
 .card img{
-
     width:56px;
-
     height:56px;
+    min-width:56px;
+    min-height:56px;
 
     border-radius:16px;
 
@@ -191,43 +174,31 @@ transform:translateX(-100%);
     border:1px solid #eef2ff;
 
     box-shadow:0 3px 8px rgba(0,0,0,.08);
-
 }
-
 /* 平台名称 */
 
 .card-info{
-
     text-align:center;
-
 }
 
 .card-info h3{
-
     font-size:14px;
-
     font-weight:600;
-
     color:#222;
-
     margin:0;
-
 }
 
 /* 去掉简介 */
 
 .card-info p{
-
     display:none;
-
 }
+
 
 /* 按钮 */
 
 .card-btn{
-
     width:100%;
-
     height:30px;
 
     margin-top:8px;
@@ -239,30 +210,18 @@ transform:translateX(-100%);
     color:#fff;
 
     display:flex;
-
     justify-content:center;
-
     align-items:center;
 
     font-size:12px;
-
     font-weight:600;
-
 }
-
-/* 去掉热门标签 */
-
-.tag{
-
-    display:none;
-
-}
-
 /* 底部 */
 
 .footer{
+    margin-top:24px;
 
-    margin-top:30px;
+    padding:18px 10px 24px;
 
     text-align:center;
 
@@ -270,17 +229,16 @@ transform:translateX(-100%);
 
     font-size:13px;
 
-    padding:20px 0;
-
+    line-height:22px;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
-
-<!-- Banner（只保留一张） -->
+<!-- Banner -->
 
 <div class="banner">
 
@@ -292,6 +250,7 @@ decoding="async"
 alt="Banner">
 
 </div>
+
 
 <!-- 公告 -->
 
@@ -315,14 +274,15 @@ alt="Banner">
 
 </div>
 
+
 <!-- 官方直营 -->
 
 <div class="title">
-官方直营
+官方直营/实用工具
 </div>
 
-<div class="grid">
 
+<div class="grid">
 <!-- 西海岸 -->
 
 <a href="https://moffym.hcjwj.com/app/register.php?site_id=2090&pt=756DC84D-3FE7-7983-428C-A5CE2F4F0401"
@@ -331,16 +291,14 @@ class="card">
 
 <img
 src="https://i.ibb.co/TxC9vJJt/IMG-0613.jpg"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="西海岸">
 
 <div class="card-info">
-
 <h3>西海岸</h3>
-
 </div>
 
 <div class="card-btn">
@@ -348,6 +306,8 @@ alt="西海岸">
 </div>
 
 </a>
+
+
 <!-- 纵横国际 -->
 
 <a href="https://xnqwzf.tckqxx.com/app/register.php?site_id=1067&topId=8041785170263560&selfPlanId=46627"
@@ -356,8 +316,8 @@ class="card">
 
 <img
 src="https://i.ibb.co/jvhkZJny/IMG-9494.jpg"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="纵横国际">
@@ -372,6 +332,7 @@ alt="纵横国际">
 
 </a>
 
+
 <!-- 胜天国际 -->
 
 <a href="https://dspeoql.tprsmi.com/app/register.php?site_id=1058&topId=4171787508075321&selfPlanId=4133283"
@@ -380,8 +341,8 @@ class="card">
 
 <img
 src="https://i.ibb.co/r2ftrgKH/56.jpg"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="胜天国际">
@@ -396,14 +357,17 @@ alt="胜天国际">
 
 </a>
 
+
 <!-- PG模拟器 -->
 
-<a href="https://321.ad" target="_blank" class="card">
+<a href="https://321.ad"
+target="_blank"
+class="card">
 
 <img
 src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="PG模拟器">
@@ -421,12 +385,14 @@ alt="PG模拟器">
 
 <!-- 旺商聊 -->
 
-<a href="https://旺旺商聊.cc" target="_blank" class="card">
+<a href="https://旺旺商聊.cc"
+target="_blank"
+class="card">
 
 <img
 src="https://i.ibb.co/pjH9H2xz/IMG-0527.jpg"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="旺商聊下载">
@@ -444,12 +410,14 @@ alt="旺商聊下载">
 
 <!-- 加拿大预测网 -->
 
-<a href="https://www.dd28.ai" target="_blank" class="card">
+<a href="https://www.dd28.ai"
+target="_blank"
+class="card">
 
 <img
 src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="加拿大预测网">
@@ -467,12 +435,14 @@ alt="加拿大预测网">
 
 <!-- 深夜福利 -->
 
-<a href="https://ko799e.sm811.vip" target="_blank" class="card">
+<a href="https://ko799e.sm811.vip"
+target="_blank"
+class="card">
 
 <img
 src="https://i.ibb.co/6cx2RzSH/6-B5606-F8-977-E-488-C-AAB9-D92-F562-B9-A1-F.png"
-loading="lazy"
-decoding="async"
+loading="eager"
+decoding="sync"
 width="56"
 height="56"
 alt="深夜福利">
@@ -487,32 +457,25 @@ alt="深夜福利">
 
 </a>
 
+
+</div>
+
+
+<!-- 底部 -->
+
 <div class="footer">
-NG集团 · 品质打造品牌<br>
-精选平台推荐与咨询服务，信息仅供参考
-© 认准官方导航 · 绿色安全入口
+
+<div>NG集团 · 品质打造品牌</div>
+
+<div>精选平台推荐与咨询服务，信息仅供参考</div>
+
+<div>© 认准官方导航 · 绿色安全入口</div>
+
 </div>
 
-<!-- 后续新增平台，直接复制下面这一块即可 -->
 
-<!--
-<a href="你的链接" target="_blank" class="card">
-
-<img
-src="你的图片"
-loading="lazy"
-decoding="async"
-width="56"
-height="56"
-alt="平台名称">
-
-<div class="card-info">
-<h3>平台名称</h3>
 </div>
 
-<div class="card-btn">
-进入
-</div>
+</body>
 
-</a>
--->
+</html>
