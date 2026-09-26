@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>风花雪月官方网站</title>
+
+<link rel="preconnect" href="https://i.ibb.co" crossorigin>
+<link rel="dns-prefetch" href="//i.ibb.co">
 
 <style>
 
@@ -17,183 +21,255 @@
 }
 
 body{
-    background:#edf5ff;
+    background:#eef4ff;
     padding:15px;
+    color:#222;
 }
 
 .container{
-    max-width:700px;
+    max-width:720px;
     margin:auto;
+}
+
+/* Banner */
+
+.banner{
+    overflow:hidden;
+    border-radius:22px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    margin-bottom:18px;
+}
+
+.banner img{
+    width:100%;
+    display:block;
+    border-radius:22px;
 }
 
 /* 公告 */
 
 .notice{
-    margin-top:15px;
-    background:#fff;
-    border-radius:14px;
-    padding:10px 14px;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
     display:flex;
     align-items:center;
-    overflow:hidden;
+    background:#fff;
+    border-radius:18px;
+    padding:14px 16px;
+    margin-bottom:18px;
+    box-shadow:0 6px 20px rgba(0,0,0,.05);
 }
 
 .notice-title{
-    font-size:15px;
+    color:#5b63ff;
     font-weight:700;
-    color:#3b6ff7;
+    margin-right:12px;
     white-space:nowrap;
-    margin-right:10px;
 }
 
 .notice-box{
-    flex:1;
     overflow:hidden;
+    flex:1;
 }
 
 .notice-list{
     display:flex;
-    width:max-content;
     white-space:nowrap;
-    animation:noticeMove 20s linear infinite;
+    width:max-content;
+    animation:noticeMove 18s linear infinite;
 }
 
 .notice-list div{
-    font-size:14px;
-    color:#555;
     margin-right:80px;
-    flex-shrink:0;
+    color:#666;
+    font-size:14px;
 }
 
 @keyframes noticeMove{
-    0%{
-        transform:translateX(100%);
-    }
 
-    100%{
-        transform:translateX(-100%);
-    }
+0%{
+transform:translateX(100%);
 }
 
-/* 联系 */
+100%{
+transform:translateX(-100%);
+}
+
+}
+
+/* 联系方式 */
 
 .contact{
-    margin-top:15px;
-    background:#fff;
-    border-radius:18px;
-    padding:18px;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+background:#fff;
+border-radius:20px;
+padding:18px;
+box-shadow:0 8px 20px rgba(0,0,0,.05);
+margin-bottom:24px;
+
 }
 
 .contact div{
-    margin:8px 0;
-    font-size:16px;
+
+margin:8px 0;
+font-size:15px;
+
 }
 
 /* 标题 */
 
 .title{
-    margin:30px 0 18px;
-    text-align:center;
-    font-size:28px;
-    font-weight:700;
-    color:#3b6ff7;
+
+font-size:30px;
+font-weight:700;
+color:#4d67ff;
+text-align:center;
+margin:28px 0 22px;
+
 }
 
-/* 卡片区域 */
+/* 平台 */
 
 .grid{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:18px;
-    width:100%;
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
+
 }
 
-/* 卡片 */
+@media (max-width:520px){
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+/* 平台卡片 */
 
 .card{
-    display:block;
-    width:100%;
-    background:#fff;
-    border-radius:24px;
-    padding:18px;
+    background:linear-gradient(180deg,#695CFF,#4E46E5);
+    border-radius:22px;
+    padding:16px;
     text-decoration:none;
-    color:#222;
-    box-shadow:0 10px 24px rgba(0,0,0,.08);
-    transition:.30s;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 12px 28px rgba(78,70,229,.25);
+    transition:.25s;
+    display:block;
 }
 
 .card:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
+
+.card::before{
+    content:"";
+    position:absolute;
+    right:-40px;
+    top:-40px;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+}
+
+/* 推荐标签 */
+
+.tag{
+    position:absolute;
+    right:12px;
+    top:12px;
+    background:#ffb300;
+    color:#fff;
+    font-size:12px;
+    padding:4px 10px;
+    border-radius:999px;
+    font-weight:700;
+}
+
+/* 平台图标 */
 
 .card-top{
     display:flex;
+    flex-direction:column;
     align-items:center;
-    gap:16px;
-    margin-bottom:18px;
+    justify-content:center;
 }
 
 .card img{
     width:72px;
     height:72px;
-    border-radius:50%;
+    border-radius:20px;
     object-fit:cover;
-    flex-shrink:0;
-}
-
-/* 图片轮播 */
-
-.card-slider{
-    position:relative;
-    width:100%;
-    overflow:hidden;
-    border-radius:16px;
-    margin-bottom:18px;
-}
-
-.card-slider-track{
-    display:flex;
-    width:300%;
-    align-items:flex-start;
-    transition:transform .5s ease;
-}
-
-.card-slide{
-    width:33.333333%;
-    flex-shrink:0;
-}
-
-.card-slide img{
+    background:#fff;
+    padding:4px;
     display:block;
-    width:100%;
-    height:auto;
-    border-radius:16px;
-    object-fit:contain;
+    margin-bottom:12px;
+
+    loading:lazy;
+    image-rendering:auto;
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.18),
+        0 0 18px rgba(255,255,255,.15);
+
+    transition:.25s;
+}
+
+.card:hover img{
+    transform:scale(1.06);
+}
+
+/* 平台名称 */
+
+.card-info{
+    text-align:center;
+}
+
+.card-info h3{
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:6px;
+    color:#fff;
+}
+
+.card-info p{
+    font-size:13px;
+    color:rgba(255,255,255,.88);
+    line-height:1.5;
+    min-height:36px;
 }
 
 /* 按钮 */
 
 .card-btn{
-    height:50px;
+    margin-top:15px;
+    height:42px;
     border-radius:999px;
-    background:linear-gradient(90deg,#47c7ff,#1c8cff);
-    color:#fff;
-    font-size:18px;
-    font-weight:bold;
+    background:#fff;
+    color:#4E46E5;
     display:flex;
     justify-content:center;
     align-items:center;
+    font-size:15px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.card:hover .card-btn{
+    background:#F5F6FF;
 }
 
 /* 底部 */
 
 .footer{
+    margin-top:40px;
     text-align:center;
-    padding:35px 20px;
-    color:#666;
+    color:#888;
     font-size:14px;
+    padding:30px 0;
 }
 
 </style>
@@ -203,182 +279,147 @@ body{
 <body>
 
 <div class="container">
+<!-- Banner -->
 
-<div class="card-slider">
+<div class="banner">
 
-    <div class="card-slider-track">
+    <div class="card-slider">
 
-        <div class="card-slide">
-            <img src="https://i.ibb.co/qMYLGXYq/IMG-0538.jpg">
-        </div>
+        <div class="card-slider-track">
 
-        <div class="card-slide">
-            <img src="https://i.ibb.co/N648H7zW/5-B05-E374-5224-43-B8-8-BF2-E0-B54-B52-AD17.png">
-        </div>
+            <div class="card-slide">
+                <img src="https://i.ibb.co/qMYLGXYq/IMG-0538.jpg"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="">
+            </div>
 
-        <div class="card-slide">
-            <img src="https://i.ibb.co/PGbH4pQv/611-E2-F5-B-87-F3-4-AA1-B22-C-37-F7-C72-FEF59.png">
+            <div class="card-slide">
+                <img src="https://i.ibb.co/N648H7zW/5-B05-E374-5224-43-B8-8-BF2-E0-B54-B52-AD17.png"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="">
+            </div>
+
+            <div class="card-slide">
+                <img src="https://i.ibb.co/PGbH4pQv/611-E2-F5-B-87-F3-4-AA1-B22-C-37-F7-C72-FEF59.png"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+                alt="">
+            </div>
+
         </div>
 
     </div>
 
 </div>
 
-<script>
-
-/* 图片左右滑动轮播 */
-
-document.querySelectorAll(".card-slider").forEach(function(slider){
-
-    const track = slider.querySelector(".card-slider-track");
-    const slides = slider.querySelectorAll(".card-slide");
-
-    let index = 0;
-    let startX = 0;
-    let startY = 0;
-
-    function showSlide(){
-        track.style.transform =
-            "translateX(-" + (index * 33.333333) + "%)";
-    }
-
-    /* 自动轮播 */
-
-    setInterval(function(){
-
-        index++;
-
-        if(index >= slides.length){
-            index = 0;
-        }
-
-        showSlide();
-
-    },3000);
-
-    /* 手机左右滑动 */
-
-    slider.addEventListener("touchstart",function(e){
-
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-
-    });
-
-    slider.addEventListener("touchend",function(e){
-
-        const endX = e.changedTouches[0].clientX;
-        const endY = e.changedTouches[0].clientY;
-
-        const moveX = endX - startX;
-        const moveY = endY - startY;
-
-        if(Math.abs(moveX) > 50 && Math.abs(moveX) > Math.abs(moveY)){
-
-            if(moveX < 0){
-                index++;
-            }else{
-                index--;
-            }
-
-            if(index >= slides.length){
-                index = 0;
-            }
-
-            if(index < 0){
-                index = slides.length - 1;
-            }
-
-            showSlide();
-
-        }
-
-    });
-
-});
-
-</script>
-
-</body>
-</html>
-
-
-
-<!-- 公告轮播 -->
+<!-- 公告 -->
 
 <div class="notice">
 
-<div class="notice-title">
-🔊
+    <div class="notice-title">
+        🔊 公告
+    </div>
+
+    <div class="notice-box">
+
+        <div class="notice-list">
+
+            <div>
+                请认准官方导航丨新人充值700返488丨充值1000返588丨备用域名：礼阮.xyz
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
-<div class="notice-box">
-
-<div class="notice-list">
-
-<div>请认准官网域名，以防诈骗 700返488现金 1000返588现金 备用域名：礼阮.xyz</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- 联系 -->
+<!-- 联系方式 -->
 
 <div class="contact">
 
-<div>👤派送彩金联系辣椒聊：1552371</div>
+    <div>👤 辣椒聊：1552371</div>
 
-<div>👤派送彩金联系旺商聊：6465401</div>
+    <div>👤 旺商聊：6465401</div>
 
 </div>
 
-
-<!-- 官方直营区域 -->
+<!-- 官方直营 -->
 
 <div class="title">
 官方直营
 </div>
 
 <div class="grid">
-    
-<a href="https://moffym.hcjwj.com/app/register.php?site_id=2090&pt=756DC84D-3FE7-7983-428C-A5CE2F4F0401" target="_blank" class="card">
 
-    <div class="card-top">
+<!-- 西海岸 -->
 
-        <img src="https://i.ibb.co/TxC9vJJt/IMG-0613.jpg"
-             alt="西海岸"
-             style="width:70px;height:70px;border-radius:14px;object-fit:cover;flex-shrink:0;">
+<a href="https://moffym.hcjwj.com/app/register.php?site_id=2090&pt=756DC84D-3FE7-7983-428C-A5CE2F4F0401"
+target="_blank"
+class="card">
 
-        <div class="card-info">
-            <h3>西海岸</h3>
-            <p>新台必爆！充500赔500！</p>
-        </div>
-
-    </div>
-
-    <div class="card-btn">
-        进入游戏
-    </div>
-
-</a>
-
-
-<!-- 纵横国际 -->
-
-<a href="https://xnqwzf.tckqxx.com/app/register.php?site_id=1067&topId=8041785170263560&selfPlanId=46627" target="_blank" class="card">
+<span class="tag">热门</span>
 
 <div class="card-top">
 
-<img src="https://i.ibb.co/jvhkZJny/IMG-9494.jpg" alt="纵横国际">
+<img
+src="https://i.ibb.co/TxC9vJJt/IMG-0613.jpg"
+loading="lazy"
+decoding="async"
+width="72"
+height="72"
+alt="西海岸">
+
+<div class="card-info">
+
+<h3>西海岸</h3>
+
+<p>
+新台必爆<br>
+充500赔500
+</p>
+
+</div>
+
+</div>
+
+<div class="card-btn">
+进入游戏
+</div>
+
+</a>
+<!-- 纵横国际 -->
+
+<a href="https://xnqwzf.tckqxx.com/app/register.php?site_id=1067&topId=8041785170263560&selfPlanId=46627"
+target="_blank"
+class="card">
+
+<span class="tag">推荐</span>
+
+<div class="card-top">
+
+<img
+src="https://i.ibb.co/jvhkZJny/IMG-9494.jpg"
+loading="lazy"
+decoding="async"
+fetchpriority="low"
+width="72"
+height="72"
+alt="纵横国际">
 
 <div class="card-info">
 
 <h3>纵横国际</h3>
 
-<p>新台必爆！充700返488现金🧧</p>
+<p>
+新人必爆<br>
+充值700返488
+</p>
 
 </div>
 
@@ -390,20 +431,33 @@ document.querySelectorAll(".card-slider").forEach(function(slider){
 
 </a>
 
-
 <!-- 胜天国际 -->
 
-<a href="https://dspeoql.tprsmi.com/app/register.php?site_id=1058&topId=4171787508075321&selfPlanId=4133283" target="_blank" class="card">
+<a href="https://dspeoql.tprsmi.com/app/register.php?site_id=1058&topId=4171787508075321&selfPlanId=4133283"
+target="_blank"
+class="card">
+
+<span class="tag">火爆</span>
 
 <div class="card-top">
 
-<img src="https://i.ibb.co/r2ftrgKH/56.jpg" alt="胜天国际">
+<img
+src="https://i.ibb.co/r2ftrgKH/56.jpg"
+loading="lazy"
+decoding="async"
+fetchpriority="low"
+width="72"
+height="72"
+alt="胜天国际">
 
 <div class="card-info">
 
 <h3>胜天国际</h3>
 
-<p>新人必爆！充700返488现金🧧</p>
+<p>
+新人必爆<br>
+充值700返488
+</p>
 
 </div>
 
@@ -416,148 +470,44 @@ document.querySelectorAll(".card-slider").forEach(function(slider){
 </a>
 
 </div>
-
-
-<!-- 试玩模拟 -->
-
-<div class="title">
-实用工具｜试玩模拟
-</div>
-
-<div class="grid">
-
-
-<!-- PG模拟器 -->
-
-<a href="https://321.ad" target="_blank" class="card">
-
-<div class="card-top">
-
-<img src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png" alt="PG模拟器" border="0">
-
-<div class="card-info">
-
-<h3>PG模拟器</h3>
-
-<p>免费试玩体验</p>
-
-</div>
-
-</div>
-
-<div class="card-btn">
-立即试玩
-</div>
-
-</a>
-
-
-
-<!-- 旺商聊 -->
-
-<a href="https://旺旺商聊.cc" target="_blank" class="card">
-    
-<div class="card-top">
-    
-<img src="https://i.ibb.co/pjH9H2xz/IMG-0527.jpg" alt="旺旺商聊下载">
-
-<div class="card-info">
-    
-<h3>旺商聊</h3>
-
-<p>官方最新版｜安全下载</p>
-
-</div>
-
-</div>
-
-<div class="card-btn">
-    
-立即下载
-
-</div>
-
-</a>
-
-
-<!-- 辣椒聊 -->
-
-<a href="https://www.lajiaoliao.com" target="_blank" class="card">
-
-<div class="card-top">
-
-<img src="https://i.ibb.co/1thZYfBY/IMG-9993.png" alt="辣椒聊下载">
-
-<div class="card-info">
-
-<h3>辣椒聊</h3>
-
-<p>官方最新版｜安全下载</p>
-
-</div>
-
-</div>
-
-<div class="card-btn">
-立即下载
-</div>
-
-</a>
-
-
-
-<a href="https://www.dd28.ai" target="_blank" class="card">
-
-    <div class="card-top">
-
-        <img src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png" 
-             alt="加拿大预测网"
-             border="0">
-
-        <div class="card-info">
-
-            <h3>加拿大预测网</h3>
-
-            <p>专业加拿大28开奖数据</p>
-
-        </div>
-
-    </div>
-
-    <div class="card-btn">
-        点击进入
-    </div>
-
-</a>
-
-
-<a href="https://ko799e.sm811.vip" target="_blank" class="card">
-
-    <div class="card-top">
-
-        <img src="https://i.ibb.co/6cx2RzSH/6-B5606-F8-977-E-488-C-AAB9-D92-F562-B9-A1-F.png" alt="深夜福利">
-
-        <div class="card-info">
-
-            <h3>深夜福利</h3>
-
-        </div>
-
-    </div>
-
-    <div class="card-btn">
-        点击进入
-    </div>
-
-</a>
-
-
 <div class="footer">
-© 认准官方导航 · 绿色安全入口
+    © 2026 风花雪月官方网站 · 官方直营导航
 </div>
 
-
 </div>
 
-</body>
-</html>
+<script>
+
+/* Banner 自动轮播 */
+
+const track=document.querySelector(".card-slider-track");
+const slides=document.querySelectorAll(".card-slide");
+
+let index=0;
+let timer;
+
+function play(){
+
+    timer=setInterval(function(){
+
+        index++;
+
+        if(index>=slides.length){
+            index=0;
+        }
+
+        track.style.transform="translateX(-"+(index*100)+"%)";
+
+    },3500);
+
+}
+
+play();
+
+/* 手势滑动 */
+
+let startX=0;
+
+document.querySelector(".card-slider").addEventListener("touchstart",e=>{
+
+    clearInterval
