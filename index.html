@@ -8,8 +8,11 @@
 
 <title>风花雪月官方网站</title>
 
+<!-- 加速加载 -->
 <link rel="preconnect" href="https://i.ibb.co" crossorigin>
 <link rel="dns-prefetch" href="//i.ibb.co">
+
+<meta name="theme-color" content="#eef4ff">
 
 <style>
 
@@ -22,8 +25,8 @@
 
 body{
     background:#eef4ff;
-    padding:15px;
     color:#222;
+    padding:12px;
 }
 
 .container{
@@ -34,16 +37,16 @@ body{
 /* Banner */
 
 .banner{
+    border-radius:18px;
     overflow:hidden;
-    border-radius:22px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    margin-bottom:18px;
+    margin-bottom:14px;
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
 }
 
 .banner img{
     width:100%;
     display:block;
-    border-radius:22px;
+    object-fit:cover;
 }
 
 /* 公告 */
@@ -52,22 +55,21 @@ body{
     display:flex;
     align-items:center;
     background:#fff;
-    border-radius:18px;
-    padding:14px 16px;
-    margin-bottom:18px;
-    box-shadow:0 6px 20px rgba(0,0,0,.05);
+    padding:12px;
+    border-radius:16px;
+    margin-bottom:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
 }
 
 .notice-title{
-    color:#5b63ff;
-    font-weight:700;
-    margin-right:12px;
-    white-space:nowrap;
+    color:#4d67ff;
+    font-weight:bold;
+    margin-right:10px;
 }
 
 .notice-box{
-    overflow:hidden;
     flex:1;
+    overflow:hidden;
 }
 
 .notice-list{
@@ -78,8 +80,8 @@ body{
 }
 
 .notice-list div{
-    margin-right:80px;
     color:#666;
+    margin-right:60px;
     font-size:14px;
 }
 
@@ -98,222 +100,196 @@ transform:translateX(-100%);
 /* 联系方式 */
 
 .contact{
-
-background:#fff;
-border-radius:20px;
-padding:18px;
-box-shadow:0 8px 20px rgba(0,0,0,.05);
-margin-bottom:24px;
-
+    background:#fff;
+    padding:14px;
+    border-radius:16px;
+    margin-bottom:20px;
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
 }
 
 .contact div{
-
-margin:8px 0;
-font-size:15px;
-
+    margin:6px 0;
+    font-size:15px;
 }
 
 /* 标题 */
 
 .title{
-
-font-size:30px;
-font-weight:700;
-color:#4d67ff;
-text-align:center;
-margin:28px 0 22px;
-
+    text-align:center;
+    font-size:26px;
+    color:#4d67ff;
+    font-weight:700;
+    margin:20px 0 16px;
 }
-
-/* 平台 */
+/* 官方直营（三列） */
 
 .grid{
-
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:16px;
-
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-top:12px;
 }
 
-@media (max-width:520px){
+/* 手机仍然保持三列 */
+
+@media(max-width:768px){
 
 .grid{
-
-grid-template-columns:1fr;
-
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
 }
 
 }
+
 /* 平台卡片 */
 
 .card{
-    background:linear-gradient(180deg,#695CFF,#4E46E5);
-    border-radius:22px;
-    padding:16px;
-    text-decoration:none;
-    color:#fff;
-    position:relative;
-    overflow:hidden;
-    box-shadow:0 12px 28px rgba(78,70,229,.25);
-    transition:.25s;
-    display:block;
-}
 
-.card:hover{
-    transform:translateY(-4px);
-}
-
-.card::before{
-    content:"";
-    position:absolute;
-    right:-40px;
-    top:-40px;
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-}
-
-/* 推荐标签 */
-
-.tag{
-    position:absolute;
-    right:12px;
-    top:12px;
-    background:#ffb300;
-    color:#fff;
-    font-size:12px;
-    padding:4px 10px;
-    border-radius:999px;
-    font-weight:700;
-}
-
-/* 平台图标 */
-
-.card-top{
     display:flex;
     flex-direction:column;
     align-items:center;
     justify-content:center;
-}
 
-.card img{
-    width:72px;
-    height:72px;
-    border-radius:20px;
-    object-fit:cover;
+    text-decoration:none;
+
     background:#fff;
-    padding:4px;
-    display:block;
-    margin-bottom:12px;
 
-    loading:lazy;
-    image-rendering:auto;
+    border-radius:16px;
 
-    box-shadow:
-        0 8px 20px rgba(0,0,0,.18),
-        0 0 18px rgba(255,255,255,.15);
+    padding:12px 8px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
 
     transition:.25s;
+
 }
 
-.card:hover img{
-    transform:scale(1.06);
+.card:hover{
+
+    transform:translateY(-3px);
+
+}
+
+/* 图标 */
+
+.card img{
+
+    width:56px;
+
+    height:56px;
+
+    border-radius:16px;
+
+    object-fit:cover;
+
+    display:block;
+
+    margin-bottom:8px;
+
+    background:#fff;
+
+    border:1px solid #eef2ff;
+
+    box-shadow:0 3px 8px rgba(0,0,0,.08);
+
 }
 
 /* 平台名称 */
 
 .card-info{
+
     text-align:center;
+
 }
 
 .card-info h3{
-    font-size:18px;
-    font-weight:700;
-    margin-bottom:6px;
-    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#222;
+
+    margin:0;
+
 }
 
+/* 去掉简介 */
+
 .card-info p{
-    font-size:13px;
-    color:rgba(255,255,255,.88);
-    line-height:1.5;
-    min-height:36px;
+
+    display:none;
+
 }
 
 /* 按钮 */
 
 .card-btn{
-    margin-top:15px;
-    height:42px;
+
+    width:100%;
+
+    height:30px;
+
+    margin-top:8px;
+
     border-radius:999px;
-    background:#fff;
-    color:#4E46E5;
+
+    background:linear-gradient(90deg,#4f6bff,#6f56ff);
+
+    color:#fff;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
-    font-size:15px;
-    font-weight:700;
-    transition:.25s;
+
+    font-size:12px;
+
+    font-weight:600;
+
 }
 
-.card:hover .card-btn{
-    background:#F5F6FF;
+/* 去掉热门标签 */
+
+.tag{
+
+    display:none;
+
 }
 
 /* 底部 */
 
 .footer{
-    margin-top:40px;
+
+    margin-top:30px;
+
     text-align:center;
-    color:#888;
-    font-size:14px;
-    padding:30px 0;
+
+    color:#999;
+
+    font-size:13px;
+
+    padding:20px 0;
+
 }
-
 </style>
-
 </head>
 
 <body>
 
 <div class="container">
-<!-- Banner -->
+
+<!-- Banner（只保留一张） -->
 
 <div class="banner">
 
-    <div class="card-slider">
-
-        <div class="card-slider-track">
-
-            <div class="card-slide">
-                <img src="https://i.ibb.co/qMYLGXYq/IMG-0538.jpg"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                alt="">
-            </div>
-
-            <div class="card-slide">
-                <img src="https://i.ibb.co/N648H7zW/5-B05-E374-5224-43-B8-8-BF2-E0-B54-B52-AD17.png"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                alt="">
-            </div>
-
-            <div class="card-slide">
-                <img src="https://i.ibb.co/PGbH4pQv/611-E2-F5-B-87-F3-4-AA1-B22-C-37-F7-C72-FEF59.png"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                alt="">
-            </div>
-
-        </div>
-
-    </div>
+<img
+src="https://i.ibb.co/qMYLGXYq/IMG-0538.jpg"
+loading="eager"
+fetchpriority="high"
+decoding="async"
+alt="Banner">
 
 </div>
 
@@ -321,21 +297,21 @@ grid-template-columns:1fr;
 
 <div class="notice">
 
-    <div class="notice-title">
-        🔊 公告
-    </div>
+<div class="notice-title">
+🔊
+</div>
 
-    <div class="notice-box">
+<div class="notice-box">
 
-        <div class="notice-list">
+<div class="notice-list">
 
-            <div>
-                请认准官方导航丨新人充值700返488丨充值1000返588丨备用域名：礼阮.xyz
-            </div>
+<div>
+请认准官方导航丨新人充值700返488丨充值1000返588丨备用域名：礼阮.xyz
+</div>
 
-        </div>
+</div>
 
-    </div>
+</div>
 
 </div>
 
@@ -343,9 +319,9 @@ grid-template-columns:1fr;
 
 <div class="contact">
 
-    <div>👤 辣椒聊：1552371</div>
+<div>👤 辣椒聊：1552371</div>
 
-    <div>👤 旺商聊：6465401</div>
+<div>👤 旺商聊：6465401</div>
 
 </div>
 
@@ -363,33 +339,22 @@ grid-template-columns:1fr;
 target="_blank"
 class="card">
 
-<span class="tag">热门</span>
-
-<div class="card-top">
-
 <img
 src="https://i.ibb.co/TxC9vJJt/IMG-0613.jpg"
 loading="lazy"
 decoding="async"
-width="72"
-height="72"
+width="56"
+height="56"
 alt="西海岸">
 
 <div class="card-info">
 
 <h3>西海岸</h3>
 
-<p>
-新台必爆<br>
-充500赔500
-</p>
-
-</div>
-
 </div>
 
 <div class="card-btn">
-进入游戏
+进入
 </div>
 
 </a>
@@ -399,34 +364,20 @@ alt="西海岸">
 target="_blank"
 class="card">
 
-<span class="tag">推荐</span>
-
-<div class="card-top">
-
 <img
 src="https://i.ibb.co/jvhkZJny/IMG-9494.jpg"
 loading="lazy"
 decoding="async"
-fetchpriority="low"
-width="72"
-height="72"
+width="56"
+height="56"
 alt="纵横国际">
 
 <div class="card-info">
-
 <h3>纵横国际</h3>
-
-<p>
-新人必爆<br>
-充值700返488
-</p>
-
-</div>
-
 </div>
 
 <div class="card-btn">
-进入游戏
+进入
 </div>
 
 </a>
@@ -437,77 +388,44 @@ alt="纵横国际">
 target="_blank"
 class="card">
 
-<span class="tag">火爆</span>
-
-<div class="card-top">
-
 <img
 src="https://i.ibb.co/r2ftrgKH/56.jpg"
 loading="lazy"
 decoding="async"
-fetchpriority="low"
-width="72"
-height="72"
+width="56"
+height="56"
 alt="胜天国际">
 
 <div class="card-info">
-
 <h3>胜天国际</h3>
-
-<p>
-新人必爆<br>
-充值700返488
-</p>
-
-</div>
-
 </div>
 
 <div class="card-btn">
-进入游戏
+进入
 </div>
 
 </a>
 
+<!-- 后续新增平台，直接复制下面这一块即可 -->
+
+<!--
+<a href="你的链接" target="_blank" class="card">
+
+<img
+src="你的图片"
+loading="lazy"
+decoding="async"
+width="56"
+height="56"
+alt="平台名称">
+
+<div class="card-info">
+<h3>平台名称</h3>
 </div>
-<div class="footer">
-    © 2026 风花雪月官方网站 · 官方直营导航
+
+<div class="card-btn">
+进入
 </div>
 
-</div>
-
-<script>
-
-/* Banner 自动轮播 */
-
-const track=document.querySelector(".card-slider-track");
-const slides=document.querySelectorAll(".card-slide");
-
-let index=0;
-let timer;
-
-function play(){
-
-    timer=setInterval(function(){
-
-        index++;
-
-        if(index>=slides.length){
-            index=0;
-        }
-
-        track.style.transform="translateX(-"+(index*100)+"%)";
-
-    },3500);
-
-}
-
-play();
-
-/* 手势滑动 */
-
-let startX=0;
-
-document.querySelector(".card-slider").addEventListener("touchstart",e=>{
-
-    clearInterval
+</a>
+-->
