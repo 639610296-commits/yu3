@@ -525,43 +525,35 @@ function switchTab(activeId){
 <script>
 function fireDanmu(){
   const textList = [
-    "✨欢迎来到官方导航网",
-    "✨日日有小欢喜",
+    "✨阅尽世间豪杰客，不如打头认准并存",
+    "✨枉负人间风流名，不如打头认准并存",
+    "✨剑扫江湖三十州，不如打头认准并存",
+    "✨纵饮山河千盏酒，不如打头认准并存",
+    "✨空怀少年凌云志，不如打头认准并存",
+    "✨纵有凌云千万志,不如打头认准并存",
     "✨万事顺意",
     "✨风花雪月",
-    "✨平安喜乐",
-    "✨曾许人间第一流",
-    "✨一剑霜寒十四州",
-    "✨醉后不知天在水",
-    "✨满船清梦压星河",
-    "✨人间忽晚山河已秋",
-    "✨且将新火试新茶",
-    "✨诗酒趁年华",
-    "✨山海皆可平",
-    "✨风月入怀万事悠",
-    "✨星河万顷赴相逢",
-    "✨半生风月一杯酒",
-    "✨并存是最牛逼的",
-    "✨并存是最牛逼的",
-    "✨并存是最牛逼的",
-    "✨并存是最牛逼的",
-    "✨并存是最牛逼的"
+    "✨平生自有凌云骨",
+    "✨须知少时凌云志,曾许人间第一流",
+    "✨满堂花醉3千客,一剑霜寒十四州",
+    "✨十年磨一剑,霜刃未曾试",
+    "✨丈夫自有冲天志,不像如来行处行",
+    "✨大鹏一日同风起,扶摇直上九万里",
+    "✨少年自有凌云志，岂凡庸半步量"
   ];
 
   const colorList = [
     "#ff4d8d",
     "#ffaa00",
     "#ffe135",
-    "#7cff7c",
     "#4fd1ff",
     "#b27cff",
     "#ff7ac6",
     "#ffd166",
-    "#ffffff",
-    "#aaffff"
+    "#7cff7c"
   ];
 
-  // 50条弹幕，铺满全屏
+  //50条弹幕，错开出场不拥挤
   for(let i=0;i<50;i++){
     setTimeout(()=>{
       const div = document.createElement('div');
@@ -569,37 +561,34 @@ function fireDanmu(){
       div.style.position = "fixed";
       div.style.right = "-520px";
       div.style.top = (Math.random() * 82 + 4)+"%";
-      div.style.fontSize = "28px";
+      div.style.fontSize = "30px";
       div.style.fontWeight = "700";
       div.style.color = colorList[Math.floor(Math.random()*colorList.length)];
-      div.style.textShadow = "0 0 6px #000, 0 0 10px #000, 0 0 14px #000";
+      div.style.textShadow = "0 0 4px #000, 1px 1px 4px #000";
       div.style.zIndex = "900";
       div.style.pointerEvents = "none";
       div.style.whiteSpace = "nowrap";
-      div.style.letterSpacing = "2px";
+      div.style.letterSpacing = "3px";
       document.body.appendChild(div);
 
-      // 保持约10秒飘过屏幕
-      const speed = 2.6;
+      const speed = 3.8;
       let pos = window.innerWidth;
-
       function move(){
         pos -= speed;
         div.style.right = pos + "px";
-        if(pos < -560){
+        if(pos < -600){
           div.remove();
         }else{
           requestAnimationFrame(move);
         }
       }
       move();
-    }, i*120);
+    }, i*260);
   }
 
-  // 8处烟花爆发，特效更满
+  //多处烟花
   const w = window.innerWidth;
   const h = window.innerHeight;
-
   createFirework(w * 0.15, h * 0.25);
   createFirework(w * 0.85, h * 0.20);
   createFirework(w * 0.20, h * 0.55);
@@ -609,55 +598,40 @@ function fireDanmu(){
   createFirework(w * 0.35, h * 0.75);
   createFirework(w * 0.65, h * 0.80);
 
-  // 额外再来一圈中心大烟花
   setTimeout(()=>{
     createBigFirework(w / 2, h / 2);
-  }, 350);
+  },350);
 }
 
-function createFirework(x, y){
+function createFirework(x,y){
   const particleCount = 36;
-  const colorList = [
-    "#ff4d8d",
-    "#ffaa00",
-    "#ffe135",
-    "#4fd1ff",
-    "#b27cff",
-    "#ff7ac6",
-    "#ffffff",
-    "#aaffff"
-  ];
-
+  const colorList = ["#ff4d8d","#ffaa00","#ffe135","#4fd1ff","#b27cff","#ff7ac6","#ffffff","#7cff7c"];
   for(let i=0;i<particleCount;i++){
     const p = document.createElement('div');
     p.style.position = "fixed";
-    p.style.left = x + "px";
-    p.style.top = y + "px";
+    p.style.left = x+"px";
+    p.style.top = y+"px";
     p.style.width = "11px";
     p.style.height = "11px";
     p.style.borderRadius = "50%";
     p.style.background = colorList[Math.floor(Math.random()*colorList.length)];
-    p.style.boxShadow = "0 0 12px currentColor, 0 0 22px currentColor";
+    p.style.boxShadow = "0 0 10px currentColor";
     p.style.zIndex = "901";
     p.style.pointerEvents = "none";
     document.body.appendChild(p);
 
-    const angle = (Math.PI * 2 / particleCount) * i + Math.random() * 0.4;
-    const velocity = 5 + Math.random() * 6;
-    const vx = Math.cos(angle) * velocity;
-    const vy = Math.sin(angle) * velocity;
+    const angle = (Math.PI*2 / particleCount)*i + Math.random()*0.4;
+    const velocity = 5 + Math.random()*6;
+    let vx = Math.cos(angle)*velocity;
+    let vy = Math.sin(angle)*velocity;
     let life = 70;
 
     function explode(){
       life--;
-      const currentX = parseFloat(p.style.left);
-      const currentY = parseFloat(p.style.top);
-      p.style.left = (currentX + vx) + "px";
-      p.style.top = (currentY + vy + life * 0.06) + "px";
-      p.style.opacity = life / 70;
-      p.style.transform = "scale(" + (life / 70) + ")";
-
-      if(life > 0){
+      p.style.left = (parseFloat(p.style.left)+vx)+"px";
+      p.style.top = (parseFloat(p.style.top)+vy + 0.08)+"px";
+      p.style.opacity = life/70;
+      if(life>0){
         requestAnimationFrame(explode);
       }else{
         p.remove();
@@ -667,48 +641,35 @@ function createFirework(x, y){
   }
 }
 
-function createBigFirework(x, y){
+function createBigFirework(x,y){
   const particleCount = 60;
-  const colorList = [
-    "#ff4d8d",
-    "#ffaa00",
-    "#ffe135",
-    "#4fd1ff",
-    "#b27cff",
-    "#ff7ac6",
-    "#ffffff"
-  ];
-
+  const colorList = ["#ff4d8d","#ffaa00","#ffe135","#4fd1ff","#b27cff","#ff7ac6","#ffffff"];
   for(let i=0;i<particleCount;i++){
     const p = document.createElement('div');
     p.style.position = "fixed";
-    p.style.left = x + "px";
-    p.style.top = y + "px";
+    p.style.left = x+"px";
+    p.style.top = y+"px";
     p.style.width = "14px";
     p.style.height = "14px";
     p.style.borderRadius = "50%";
     p.style.background = colorList[Math.floor(Math.random()*colorList.length)];
-    p.style.boxShadow = "0 0 16px currentColor, 0 0 28px currentColor";
+    p.style.boxShadow = "0 0 14px currentColor";
     p.style.zIndex = "902";
     p.style.pointerEvents = "none";
     document.body.appendChild(p);
 
-    const angle = (Math.PI * 2 / particleCount) * i;
-    const velocity = 7 + Math.random() * 7;
-    const vx = Math.cos(angle) * velocity;
-    const vy = Math.sin(angle) * velocity;
+    const angle = (Math.PI*2 / particleCount)*i;
+    const velocity = 7 + Math.random()*7;
+    let vx = Math.cos(angle)*velocity;
+    let vy = Math.sin(angle)*velocity;
     let life = 80;
 
     function explode(){
       life--;
-      const currentX = parseFloat(p.style.left);
-      const currentY = parseFloat(p.style.top);
-      p.style.left = (currentX + vx) + "px";
-      p.style.top = (currentY + vy + life * 0.07) + "px";
-      p.style.opacity = life / 80;
-      p.style.transform = "scale(" + (life / 80) + ")";
-
-      if(life > 0){
+      p.style.left = (parseFloat(p.style.left)+vx)+"px";
+      p.style.top = (parseFloat(p.style.top)+vy + 0.09)+"px";
+      p.style.opacity = life/80;
+      if(life>0){
         requestAnimationFrame(explode);
       }else{
         p.remove();
