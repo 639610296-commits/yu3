@@ -525,118 +525,124 @@ function switchTab(activeId){
 <script>
 function fireDanmu(){
   const textList = [
-    "空怀少年凌云志，不如打头认准并存。",
-    "纵饮山河千盏酒，不如打头认准并存。",
-    "剑扫江湖三十州，不如打头认准并存。",
-    "枉负人间风流名，不如打头认准并存。",
-    "纵使名扬千万里，不如打头认准并存。",
-    "徒拥胸中鸿鹄梦，不如打头认准并存。",
-    "阅尽世间豪杰客，不如打头认准并存。",
-    "漫道男儿冲天志，不如打头认准并存。"
+    "莫羡他人凌云志，不如打头认准并存",
+    "休夸别家千种好，不如打头认准并存",
+    "纵慕江湖豪杰客，不如打头认准并存",
+    "空羡世间名与势，不如打头认准并存",
+    "休道旁人多意气，不如打头认准并存",
+    "莫逐人间浮华梦，不如打头认准并存",
+    "徒羡他乡风光好，不如打头认准并存",
+    "漫说别家声势盛，不如打头认准并存"
   ];
 
-  const colorList = [
-    "#ff4d8d",
-    "#ffaa00",
-    "#ffe135",
-    "#4fd1ff",
-    "#b27cff",
-    "#ff7ac6",
-    "#ffd166",
-    "#7cff7c"
-  ];
+  const colorList = ["#ff4d8d","#ffaa00","#ffe135","#4fd1ff","#b27cff","#ff7ac6","#ffd166","#7cff7c"];
 
-  //生成50条，随机位置弹出，原地渐隐，不横向移动
-  for(let i=0;i<50;i++){
+  for(let i = 0; i < 20; i++){
     setTimeout(()=>{
       const div = document.createElement('div');
-      div.innerText = textList[Math.floor(Math.random()*textList.length)];
+      div.innerText = textList[Math.floor(Math.random() * textList.length)];
       div.style.position = "fixed";
-      //随机屏幕位置
-      div.style.left = (Math.random() * 75 + 5)+"%";
-      div.style.top = (Math.random() * 75 + 5)+"%";
-      div.style.fontSize = "30px";
+      div.style.left = (Math.random() * 70 + 5)+"%";
+      div.style.top = "-60px";
+      div.style.fontSize = "14px";
       div.style.fontWeight = "700";
-      div.style.color = colorList[Math.floor(Math.random()*colorList.length)];
-      div.style.textShadow = "0 0 4px #000, 1px 1px 4px #000";
+      div.style.color = colorList[Math.floor(Math.random() * colorList.length)];
+      div.style.textShadow = "1px 1px 3px #000";
       div.style.zIndex = "900";
       div.style.pointerEvents = "none";
       div.style.whiteSpace = "nowrap";
-      div.style.letterSpacing = "2px";
-      div.style.opacity = 0;
+      div.style.maxWidth = "90vw";
+      div.style.opacity = "1";
       document.body.appendChild(div);
 
-      let opacity = 0;
-      // 淡入 -> 停留7秒让人看清 -> 淡出，全程10秒
-      function fadeInOut(){
-        if(opacity < 1){
-          opacity += 0.02;
-          div.style.opacity = opacity;
-          requestAnimationFrame(fadeInOut);
-        }else{
-          setTimeout(()=>{
-            function fadeOut(){
-              opacity -= 0.015;
-              div.style.opacity = opacity;
-              if(opacity <= 0){
-                div.remove();
-              }else{
-                requestAnimationFrame(fadeOut);
-              }
-            }
-            fadeOut();
-          },7000);
+      const speedY = 0.8 + Math.random() * 0.7;
+      let topVal = -60;
+      let fading = false;
+
+      function dropLoop(){
+        topVal += speedY;
+        div.style.top = topVal + "px";
+
+        if(topVal > window.innerHeight * 0.72 && !fading){
+          fading = true;
         }
+        if(fading){
+          div.style.opacity -= 0.006;
+        }
+
+        if(topVal > window.innerHeight + 40 || parseFloat(div.style.opacity) <= 0){
+          div.remove();
+          return;
+        }
+        requestAnimationFrame(dropLoop);
       }
-      fadeInOut();
-    }, i*220);
+      dropLoop();
+    }, i * 320);
   }
 
-  //烟花
   const w = window.innerWidth;
   const h = window.innerHeight;
-  createFirework(w * 0.15, h * 0.25);
-  createFirework(w * 0.85, h * 0.20);
-  createFirework(w * 0.20, h * 0.55);
-  createFirework(w * 0.80, h * 0.60);
-  createFirework(w * 0.50, h * 0.18);
-  createFirework(w * 0.50, h * 0.50);
-  createFirework(w * 0.35, h * 0.75);
-  createFirework(w * 0.65, h * 0.80);
-
-  setTimeout(()=>{
-    createBigFirework(w / 2, h / 2);
-  },350);
+  const positions = [
+    { x:w*0.18,y:h*0.22 },
+    { x:w*0.82,y:h*0.18 },
+    { x:w*0.22,y:h*0.48 },
+    { x:w*0.78,y:h*0.52 },
+    { x:w*0.5,y:h*0.24 },
+    { x:w*0.36,y:h*0.7 },
+    { x:w*0.64,y:h*0.74 }
+  ];
+  positions.forEach((pos,idx)=>{
+    setTimeout(()=>{ niceFirework(pos.x,pos.y); }, idx*380);
+  });
+  setTimeout(()=>{ niceFirework(w/2, h/2,1.4); },900);
 }
 
-function createFirework(x,y){
-  const particleCount = 36;
-  const colorList = ["#ff4d8d","#ffaa00","#ffe135","#4fd1ff","#b27cff","#ff7ac6","#ffffff","#7cff7c"];
+function niceFirework(x,y,scale=1){
+  const colorList = [
+    ["#ff4d8d","#ff7ac6","#ffffff"],
+    ["#ffaa00","#ffe135","#ffffff"],
+    ["#4fd1ff","#b27cff","#ffffff"],
+    ["#7cff7c","#ffe135","#ffffff"],
+    ["#ff7ac6","#b27cff","#4fd1ff"]
+  ];
+  const colors = colorList[Math.floor(Math.random()*colorList.length)];
+  const particleCount = Math.floor(55+Math.random()*35);
+
   for(let i=0;i<particleCount;i++){
     const p = document.createElement('div');
     p.style.position = "fixed";
     p.style.left = x+"px";
     p.style.top = y+"px";
-    p.style.width = "11px";
-    p.style.height = "11px";
     p.style.borderRadius = "50%";
-    p.style.background = colorList[Math.floor(Math.random()*colorList.length)];
-    p.style.boxShadow = "0 0 10px currentColor";
     p.style.zIndex = "901";
     p.style.pointerEvents = "none";
-    document.body.appendChild(p);
+    const size = 2 + Math.random()*5;
+    p.style.width = size+"px";
+    p.style.height = size+"px";
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    p.style.background = color;
+    p.style.boxShadow = "0 0 8px "+color;
 
-    const angle = (Math.PI*2 / particleCount)*i + Math.random()*0.4;
-    const velocity = 5 + Math.random()*6;
+    const angle = (Math.PI*2/particleCount)*i + Math.random()*0.6;
+    const velocity = (4 + Math.random()*5)*scale;
     let vx = Math.cos(angle)*velocity;
     let vy = Math.sin(angle)*velocity;
-    let life = 70;
-
+    const trail = 0.88 + Math.random()*0.08;
+    let life = 75 + Math.random()*25;
+    if(Math.random()<0.12){
+      p.style.width = (size+3)+"px";
+      p.style.height = (size+3)+"px";
+      p.style.boxShadow = "0 0 14px "+color;
+    }
+    document.body.appendChild(p);
     function explode(){
       life--;
+      vx *= trail;
+      vy *= trail;
+      vy +=0.04;
       p.style.left = (parseFloat(p.style.left)+vx)+"px";
-      p.style.top = (parseFloat(p.style.top)+vy + 0.08)+"px";
-      p.style.opacity = life/70;
+      p.style.top = (parseFloat(p.style.top)+vy)+"px";
+      p.style.opacity = Math.max(0, life/100);
       if(life>0){
         requestAnimationFrame(explode);
       }else{
@@ -645,44 +651,29 @@ function createFirework(x,y){
     }
     explode();
   }
-}
-
-function createBigFirework(x,y){
-  const particleCount = 60;
-  const colorList = ["#ff4d8d","#ffaa00","#ffe135","#4fd1ff","#b27cff","#ff7ac6","#ffffff"];
-  for(let i=0;i<particleCount;i++){
-    const p = document.createElement('div');
-    p.style.position = "fixed";
-    p.style.left = x+"px";
-    p.style.top = y+"px";
-    p.style.width = "14px";
-    p.style.height = "14px";
-    p.style.borderRadius = "50%";
-    p.style.background = colorList[Math.floor(Math.random()*colorList.length)];
-    p.style.boxShadow = "0 0 14px currentColor";
-    p.style.zIndex = "902";
-    p.style.pointerEvents = "none";
-    document.body.appendChild(p);
-
-    const angle = (Math.PI*2 / particleCount)*i;
-    const velocity = 7 + Math.random()*7;
-    let vx = Math.cos(angle)*velocity;
-    let vy = Math.sin(angle)*velocity;
-    let life = 80;
-
-    function explode(){
-      life--;
-      p.style.left = (parseFloat(p.style.left)+vx)+"px";
-      p.style.top = (parseFloat(p.style.top)+vy + 0.09)+"px";
-      p.style.opacity = life/80;
-      if(life>0){
-        requestAnimationFrame(explode);
-      }else{
-        p.remove();
-      }
+  const flash = document.createElement('div');
+  flash.style.position="fixed";
+  flash.style.left=(x-30*scale)+"px";
+  flash.style.top=(y-30*scale)+"px";
+  flash.style.width=(60*scale)+"px";
+  flash.style.height=(60*scale)+"px";
+  flash.style.borderRadius="50%";
+  flash.style.background="radial-gradient(circle, rgba(255,255,255,.9), rgba(255,200,80,.4), transparent 70%)";
+  flash.style.opacity="1";
+  flash.style.zIndex="902";
+  flash.style.pointerEvents="none";
+  document.body.appendChild(flash);
+  let flashOpacity=1;
+  function fadeFlash(){
+    flashOpacity -=0.08;
+    flash.style.opacity=flashOpacity;
+    if(flashOpacity>0){
+      requestAnimationFrame(fadeFlash);
+    }else{
+      flash.remove();
     }
-    explode();
   }
+  fadeFlash();
 }
 </script>
 </body>
