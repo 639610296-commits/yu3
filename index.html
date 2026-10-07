@@ -525,21 +525,14 @@ function switchTab(activeId){
 <script>
 function fireDanmu(){
   const textList = [
-    "✨阅尽世间豪杰客，不如打头认准并存",
-    "✨枉负人间风流名，不如打头认准并存",
-    "✨剑扫江湖三十州，不如打头认准并存",
-    "✨纵饮山河千盏酒，不如打头认准并存",
-    "✨空怀少年凌云志，不如打头认准并存",
-    "✨纵有凌云千万志,不如打头认准并存",
-    "✨万事顺意",
-    "✨风花雪月",
-    "✨平生自有凌云骨",
-    "✨须知少时凌云志,曾许人间第一流",
-    "✨满堂花醉3千客,一剑霜寒十四州",
-    "✨十年磨一剑,霜刃未曾试",
-    "✨丈夫自有冲天志,不像如来行处行",
-    "✨大鹏一日同风起,扶摇直上九万里",
-    "✨少年自有凌云志，岂凡庸半步量"
+    "空怀少年凌云志，不如打头认准并存。",
+    "纵饮山河千盏酒，不如打头认准并存。",
+    "剑扫江湖三十州，不如打头认准并存。",
+    "枉负人间风流名，不如打头认准并存。",
+    "纵使名扬千万里，不如打头认准并存。",
+    "徒拥胸中鸿鹄梦，不如打头认准并存。",
+    "阅尽世间豪杰客，不如打头认准并存。",
+    "漫道男儿冲天志，不如打头认准并存。"
   ];
 
   const colorList = [
@@ -553,14 +546,15 @@ function fireDanmu(){
     "#7cff7c"
   ];
 
-  //50条弹幕，错开出场不拥挤
+  //生成50条，随机位置弹出，原地渐隐，不横向移动
   for(let i=0;i<50;i++){
     setTimeout(()=>{
       const div = document.createElement('div');
       div.innerText = textList[Math.floor(Math.random()*textList.length)];
       div.style.position = "fixed";
-      div.style.right = "-520px";
-      div.style.top = (Math.random() * 82 + 4)+"%";
+      //随机屏幕位置
+      div.style.left = (Math.random() * 75 + 5)+"%";
+      div.style.top = (Math.random() * 75 + 5)+"%";
       div.style.fontSize = "30px";
       div.style.fontWeight = "700";
       div.style.color = colorList[Math.floor(Math.random()*colorList.length)];
@@ -568,25 +562,37 @@ function fireDanmu(){
       div.style.zIndex = "900";
       div.style.pointerEvents = "none";
       div.style.whiteSpace = "nowrap";
-      div.style.letterSpacing = "3px";
+      div.style.letterSpacing = "2px";
+      div.style.opacity = 0;
       document.body.appendChild(div);
 
-      const speed = 3.8;
-      let pos = window.innerWidth;
-      function move(){
-        pos -= speed;
-        div.style.right = pos + "px";
-        if(pos < -600){
-          div.remove();
+      let opacity = 0;
+      // 淡入 -> 停留7秒让人看清 -> 淡出，全程10秒
+      function fadeInOut(){
+        if(opacity < 1){
+          opacity += 0.02;
+          div.style.opacity = opacity;
+          requestAnimationFrame(fadeInOut);
         }else{
-          requestAnimationFrame(move);
+          setTimeout(()=>{
+            function fadeOut(){
+              opacity -= 0.015;
+              div.style.opacity = opacity;
+              if(opacity <= 0){
+                div.remove();
+              }else{
+                requestAnimationFrame(fadeOut);
+              }
+            }
+            fadeOut();
+          },7000);
         }
       }
-      move();
-    }, i*260);
+      fadeInOut();
+    }, i*220);
   }
 
-  //多处烟花
+  //烟花
   const w = window.innerWidth;
   const h = window.innerHeight;
   createFirework(w * 0.15, h * 0.25);
