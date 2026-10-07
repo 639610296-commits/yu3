@@ -304,16 +304,17 @@ transform:translateX(-100%);
 </div>
 
 </div>
-
-<!-- 官方直营 -->
-
-<div class="title">
-官方直营/实用工具
+<!-- tab切换按钮：官方直营 / 实用工具，沿用你网站蓝色风格 -->
+<div style="display:flex;gap:10px;margin:14px 0;">
+  <button id="btn-zy" onclick="switchTab('zy')" style="flex:1;padding:11px;border-radius:14px;border:none;background:linear-gradient(90deg,#4f6bff,#6f56ff);color:white;font-size:15px;font-weight:bold;">官方直营</button>
+  <button id="btn-tool" onclick="switchTab('tool')" style="flex:1;padding:11px;border-radius:14px;border:none;background:#ffffff;color:#444;font-size:15px;font-weight:bold;box-shadow:0 4px 12px rgba(0,0,0,.05);">实用工具</button>
 </div>
 
-<div class="grid">
-
-<div class="card">
+<!-- 官方直营 内容区域，这里放你的 .grid + card卡片 -->
+<div id="zy">
+  <div class="grid">
+    <!-- 你把所有平台card卡片粘贴在这里 -->
+        <div class="card">
   <!-- 图片：只展示，不能点击跳转，加懒加载提速 -->
   <img src="https://i.ibb.co/5gdKpzMW/57.jpg" alt="平台名称" border="0" loading="lazy">
 
@@ -369,9 +370,16 @@ transform:translateX(-100%);
   </div>
 </div>
 
-<!-- PG模拟器 -->
 
-<a href="https://321.ad" target="_blank" class="card">
+
+  </div>
+</div>
+
+<!-- 实用工具 内容区域 -->
+<div id="tool" style="display:none;">
+  <div class="grid">
+    <!-- 你把工具类card卡片粘贴在这里 -->
+    <a href="https://321.ad" target="_blank" class="card">
 
 <img
 src="https://i.ibb.co/8DXy3Yv8/8-F5-FD666-BF01-4-D36-8722-DBD10955-B6-C7.png"
@@ -456,6 +464,39 @@ alt="深夜福利">
 </div>
 
 </a>
+
+
+
+
+  </div>
+</div>
+
+<script>
+function switchTab(activeId){
+  //切换板块显示隐藏
+  document.getElementById('zy').style.display = activeId==='zy' ? 'block' : 'none';
+  document.getElementById('tool').style.display = activeId==='tool' ? 'block' : 'none';
+
+  //切换按钮颜色
+  const bZy = document.getElementById('btn-zy');
+  const bTool = document.getElementById('btn-tool');
+  if(activeId === 'zy'){
+    bZy.style.background = 'linear-gradient(90deg,#4f6bff,#6f56ff)';
+    bZy.style.color = 'white';
+    bTool.style.background = '#ffffff';
+    bTool.style.color = '#444';
+  }else{
+    bTool.style.background = 'linear-gradient(90deg,#4f6bff,#6f56ff)';
+    bTool.style.color = 'white';
+    bZy.style.background = '#ffffff';
+    bZy.style.color = '#444';
+  }
+}
+</script>
+
+<!-- 下面你的contact、footer保留不动 -->
+
+</div>
 
 
 <div class="footer">
