@@ -547,36 +547,174 @@ function fireDanmu(){
     "✨并存是最牛逼的",
     "✨并存是最牛逼的"
   ];
-  const colorList = ["#ff77aa","#77bbff","#ffbb66","#88ddaa","#cc99ff","#ff9977","#66cccc"];
 
-  for(let i=0;i<12;i++){
+  const colorList = [
+    "#ff4d8d",
+    "#ffaa00",
+    "#ffe135",
+    "#7cff7c",
+    "#4fd1ff",
+    "#b27cff",
+    "#ff7ac6",
+    "#ffd166",
+    "#ffffff",
+    "#aaffff"
+  ];
+
+  // 50条弹幕，铺满全屏
+  for(let i=0;i<50;i++){
     setTimeout(()=>{
       const div = document.createElement('div');
       div.innerText = textList[Math.floor(Math.random()*textList.length)];
       div.style.position = "fixed";
-      div.style.right = "-300px";
-      div.style.top = (Math.random() * 85 + 5)+"%";
-      div.style.fontSize = "18px";
-      div.style.fontWeight = "500";
+      div.style.right = "-520px";
+      div.style.top = (Math.random() * 82 + 4)+"%";
+      div.style.fontSize = "28px";
+      div.style.fontWeight = "700";
       div.style.color = colorList[Math.floor(Math.random()*colorList.length)];
+      div.style.textShadow = "0 0 6px #000, 0 0 10px #000, 0 0 14px #000";
       div.style.zIndex = "900";
       div.style.pointerEvents = "none";
       div.style.whiteSpace = "nowrap";
+      div.style.letterSpacing = "2px";
       document.body.appendChild(div);
 
-      const speed = 12 + Math.random()*6;
+      // 保持约10秒飘过屏幕
+      const speed = 2.6;
       let pos = window.innerWidth;
+
       function move(){
         pos -= speed;
         div.style.right = pos + "px";
-        if(pos < -400){
+        if(pos < -560){
           div.remove();
         }else{
           requestAnimationFrame(move);
         }
       }
       move();
-    }, i*160);
+    }, i*120);
+  }
+
+  // 8处烟花爆发，特效更满
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+
+  createFirework(w * 0.15, h * 0.25);
+  createFirework(w * 0.85, h * 0.20);
+  createFirework(w * 0.20, h * 0.55);
+  createFirework(w * 0.80, h * 0.60);
+  createFirework(w * 0.50, h * 0.18);
+  createFirework(w * 0.50, h * 0.50);
+  createFirework(w * 0.35, h * 0.75);
+  createFirework(w * 0.65, h * 0.80);
+
+  // 额外再来一圈中心大烟花
+  setTimeout(()=>{
+    createBigFirework(w / 2, h / 2);
+  }, 350);
+}
+
+function createFirework(x, y){
+  const particleCount = 36;
+  const colorList = [
+    "#ff4d8d",
+    "#ffaa00",
+    "#ffe135",
+    "#4fd1ff",
+    "#b27cff",
+    "#ff7ac6",
+    "#ffffff",
+    "#aaffff"
+  ];
+
+  for(let i=0;i<particleCount;i++){
+    const p = document.createElement('div');
+    p.style.position = "fixed";
+    p.style.left = x + "px";
+    p.style.top = y + "px";
+    p.style.width = "11px";
+    p.style.height = "11px";
+    p.style.borderRadius = "50%";
+    p.style.background = colorList[Math.floor(Math.random()*colorList.length)];
+    p.style.boxShadow = "0 0 12px currentColor, 0 0 22px currentColor";
+    p.style.zIndex = "901";
+    p.style.pointerEvents = "none";
+    document.body.appendChild(p);
+
+    const angle = (Math.PI * 2 / particleCount) * i + Math.random() * 0.4;
+    const velocity = 5 + Math.random() * 6;
+    const vx = Math.cos(angle) * velocity;
+    const vy = Math.sin(angle) * velocity;
+    let life = 70;
+
+    function explode(){
+      life--;
+      const currentX = parseFloat(p.style.left);
+      const currentY = parseFloat(p.style.top);
+      p.style.left = (currentX + vx) + "px";
+      p.style.top = (currentY + vy + life * 0.06) + "px";
+      p.style.opacity = life / 70;
+      p.style.transform = "scale(" + (life / 70) + ")";
+
+      if(life > 0){
+        requestAnimationFrame(explode);
+      }else{
+        p.remove();
+      }
+    }
+    explode();
+  }
+}
+
+function createBigFirework(x, y){
+  const particleCount = 60;
+  const colorList = [
+    "#ff4d8d",
+    "#ffaa00",
+    "#ffe135",
+    "#4fd1ff",
+    "#b27cff",
+    "#ff7ac6",
+    "#ffffff"
+  ];
+
+  for(let i=0;i<particleCount;i++){
+    const p = document.createElement('div');
+    p.style.position = "fixed";
+    p.style.left = x + "px";
+    p.style.top = y + "px";
+    p.style.width = "14px";
+    p.style.height = "14px";
+    p.style.borderRadius = "50%";
+    p.style.background = colorList[Math.floor(Math.random()*colorList.length)];
+    p.style.boxShadow = "0 0 16px currentColor, 0 0 28px currentColor";
+    p.style.zIndex = "902";
+    p.style.pointerEvents = "none";
+    document.body.appendChild(p);
+
+    const angle = (Math.PI * 2 / particleCount) * i;
+    const velocity = 7 + Math.random() * 7;
+    const vx = Math.cos(angle) * velocity;
+    const vy = Math.sin(angle) * velocity;
+    let life = 80;
+
+    function explode(){
+      life--;
+      const currentX = parseFloat(p.style.left);
+      const currentY = parseFloat(p.style.top);
+      p.style.left = (currentX + vx) + "px";
+      p.style.top = (currentY + vy + life * 0.07) + "px";
+      p.style.opacity = life / 80;
+      p.style.transform = "scale(" + (life / 80) + ")";
+
+      if(life > 0){
+        requestAnimationFrame(explode);
+      }else{
+        p.remove();
+      }
+    }
+    explode();
   }
 }
 </script>
