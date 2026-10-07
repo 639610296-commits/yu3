@@ -471,6 +471,12 @@ alt="深夜福利">
 点击进入
 </div>
 
+<div class="card" onclick="fireDanmu()">
+  <div class="card-info">
+    <h3>弹幕小惊喜</h3>
+  </div>
+</div>
+
 </a>
 
 
@@ -514,6 +520,64 @@ function switchTab(activeId){
 </div>
 
 </div>
+<script>
+function fireDanmu(){
+  const textList = [
+    "✨欢迎来到官方导航网",
+    "✨日日有小欢喜",
+    "✨万事顺意",
+    "✨风花雪月",
+    "✨平安喜乐",
+    "✨曾许人间第一流",
+    "✨一剑霜寒十四州",
+    "✨醉后不知天在水",
+    "✨满船清梦压星河",
+    "✨人间忽晚山河已秋",
+    "✨且将新火试新茶",
+    "✨诗酒趁年华",
+    "✨山海皆可平",
+    "✨风月入怀万事悠",
+    "✨星河万顷赴相逢",
+    "✨半生风月一杯酒",
+    "✨并存是最牛逼的",
+    "✨并存是最牛逼的",
+    "✨并存是最牛逼的",
+    "✨并存是最牛逼的",
+    "✨并存是最牛逼的"
+  ];
+  const colorList = ["#ff77aa","#77bbff","#ffbb66","#88ddaa","#cc99ff","#ff9977","#66cccc"];
+
+  for(let i=0;i<12;i++){
+    setTimeout(()=>{
+      const div = document.createElement('div');
+      div.innerText = textList[Math.floor(Math.random()*textList.length)];
+      div.style.position = "fixed";
+      div.style.right = "-300px";
+      div.style.top = (Math.random() * 85 + 5)+"%";
+      div.style.fontSize = "18px";
+      div.style.fontWeight = "500";
+      div.style.color = colorList[Math.floor(Math.random()*colorList.length)];
+      div.style.zIndex = "900";
+      div.style.pointerEvents = "none";
+      div.style.whiteSpace = "nowrap";
+      document.body.appendChild(div);
+
+      const speed = 12 + Math.random()*6;
+      let pos = window.innerWidth;
+      function move(){
+        pos -= speed;
+        div.style.right = pos + "px";
+        if(pos < -400){
+          div.remove();
+        }else{
+          requestAnimationFrame(move);
+        }
+      }
+      move();
+    }, i*160);
+  }
+}
+</script>
 </body>
 </html>
 <!-- 后续新增平台，直接复制下面这一块即可 -->
