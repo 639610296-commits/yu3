@@ -403,23 +403,22 @@ backdrop-filter: blur(10px);
 
 <body>
 <div class="pop-mask" id="popMask">
-    <div class="pop-box">
-        <div class="pop-img-area">
-            <img src="https://i.ibb.co/cS1Q4472/IMG-1329.jpg" alt="顶部图">
-            <div class="pop-close" onclick="closePop()">×</div>
+    <div class="pop-box" style="background:#fff; border-radius:16px; width:90%; max-width:420px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.2);">
+        <div class="pop-img-area" style="position:relative;">
+            <img src="https://i.ibb.co/cS1Q4472/IMG-1329.jpg" alt="顶部图" style="width:100%;max-height:220px;object-fit:contain;">
+            <div class="pop-close" onclick="closePop()" style="font-size:20px; color:#fff; position:absolute; top:10px; right:12px; cursor:pointer;">×</div>
         </div>
-        <div class="pop-content">
-            <div class="pop-title">网站公告</div>
-            <div class="pop-text-wrap">
-                <div class="pop-text-short">真龙国际正在预热</div>
-                <div class="pop-text-full">尽情期待</div>
+        <div class="pop-content" style="padding:20px;">
+            <div class="pop-title" style="font-size:16px; font-weight:500; color:#222; letter-spacing:1px;">预告</div>
+            <div class="pop-text-wrap" style="margin:12px 0;">
+                <div class="pop-text-short" style="font-size:14px; color:#444; line-height:1.6;">真龙国际正在预热中，尽情期待</div>
+                <div class="pop-text-full" style="font-size:14px; color:#444; line-height:1.6; display:none;">请输入文本</div>
             </div>
-            <div class="pop-expand" id="expandBtn" onclick="toggleText()">展开全文</div>
-            <button class="pop-btn" onclick="closePop()">知道了</button>
+            <div class="pop-expand" id="expandBtn" onclick="toggleText()" style="font-size:14px; color:#2563eb; margin-bottom:16px; cursor:pointer;">展开全文</div>
+            <button class="pop-btn" onclick="closePop()" style="font-size:14px; padding:10px 0; width:100%; border:none; border-radius:8px; background:#111; color:#fff;">我知道了</button>
         </div>
     </div>
 </div>
-
 <!-- Banner（只保留一张） -->
 <div class="banner" style="max-width: 720px; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 18px; margin: 0 auto 14px; box-shadow: 0 6px 20px rgba(0,0,0,.08);">
   <img
