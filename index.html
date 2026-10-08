@@ -308,6 +308,37 @@ backdrop-filter: blur(10px);
     padding:20px 0;
 
 }
+.top-bar{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:12px 16px;
+    background:rgba(0,0,0,0.25);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    position:sticky;
+    top:0;
+    z-index:999;
+    border-radius:0 0 14px 14px;
+    width:100%;
+    box-sizing:border-box;
+}
+.top-avatar{
+    width:64px;
+    height:64px;
+    border-radius:50%;
+    object-fit:cover;
+    aspect-ratio:1 / 1;
+    border:2px solid rgba(255,255,255,0.4);
+}
+.top-title{
+    font-weight:900;
+    font-size:24px;
+    color:#ffffff;
+}
+.top-empty{
+    flex:1;
+}
 </style>
 </head>
 
