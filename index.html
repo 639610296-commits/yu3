@@ -70,6 +70,97 @@ body{
     margin-top:0px;
 }
 
+.pop-mask{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+.pop-box{
+    width:100%;
+    max-width:440px;
+    background:#fff;
+    border-radius:22px;
+    overflow:hidden;
+    font-family: system-ui, sans-serif;
+}
+.pop-img-area{
+    height:220px;
+    position:relative;
+    background:#f8f8f8;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.pop-img-area img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+.pop-close{
+    position:absolute;
+    top:14px;
+    right:14px;
+    width:42px;
+    height:42px;
+    border-radius:12px;
+    background:#f3f3f7;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:24px;
+    color:#444;
+    cursor:pointer;
+}
+.pop-content{
+    padding:24px;
+}
+.pop-title{
+    text-align:center;
+    font-size:26px;
+    color:#0052cc;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+.pop-item{
+    font-size:17px;
+    margin:12px 0;
+}
+.pop-item a{
+    color:#6b46c1;
+    word-break:break-all;
+    text-decoration:none;
+}
+.pop-text-wrap{
+    overflow:hidden;
+}
+.pop-text-short{
+}
+.pop-text-full{
+    display:none;
+}
+.pop-expand{
+    color:#6b46c1;
+    margin:16px 0 24px;
+    cursor:pointer;
+    display:inline-block;
+}
+.pop-btn{
+    width:100%;
+    border:none;
+    background:#0052cc;
+    color:#ffffff;
+    padding:16px;
+    border-radius:14px;
+    font-size:18px;
+    cursor:pointer;
+}
+
 /* Banner */
 
 .banner{
@@ -311,6 +402,24 @@ backdrop-filter: blur(10px);
 </head>
 
 <body>
+<div class="pop-mask" id="popMask">
+    <div class="pop-box">
+        <div class="pop-img-area">
+            <img src="https://i.ibb.co/cS1Q4472/IMG-1329.jpg" alt="顶部图">
+            <div class="pop-close" onclick="closePop()">×</div>
+        </div>
+        <div class="pop-content">
+            <div class="pop-title">网站公告</div>
+            <div class="pop-text-wrap">
+                <div class="pop-text-short">真龙国际正在预热</div>
+                <div class="pop-text-full">尽情期待</div>
+            </div>
+            <div class="pop-expand" id="expandBtn" onclick="toggleText()">展开全文</div>
+            <button class="pop-btn" onclick="closePop()">知道了</button>
+        </div>
+    </div>
+</div>
+
 <!-- Banner（只保留一张） -->
 <div class="banner" style="max-width: 720px; width: 100%; aspect-ratio: 16/9; overflow: hidden; border-radius: 18px; margin: 0 auto 14px; box-shadow: 0 6px 20px rgba(0,0,0,.08);">
   <img
@@ -543,6 +652,36 @@ function switchTab(activeId){
 
 </div>
 </body>
+<script>
+const popMask = document.getElementById('popMask');
+const expandBtn = document.getElementById('expandBtn');
+const shortText = document.querySelector('.pop-text-short');
+const fullText = document.querySelector('.pop-text-full');
+let isOpen = false;
+
+if(!sessionStorage.getItem('popClosed')){
+    popMask.style.display = 'flex';
+}
+
+function closePop(){
+    popMask.style.display = 'none';
+    sessionStorage.setItem('popClosed','1');
+}
+
+function toggleText(){
+    if(!isOpen){
+        shortText.style.display = 'none';
+        fullText.style.display = 'block';
+        expandBtn.innerText = '收起全文';
+        isOpen = true;
+    }else{
+        shortText.style.display = 'block';
+        fullText.style.display = 'none';
+        expandBtn.innerText = '展开全文';
+        isOpen = false;
+    }
+}
+</script>
 </html>
 <!-- 后续新增平台，直接复制下面这一块即可 -->
 
