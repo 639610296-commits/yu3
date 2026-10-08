@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>风花雪月官方网站</title>
+<title>风花雪月</title>
 
 <!-- 加速加载 -->
 <link rel="preconnect" href="https://i.ibb.co" crossorigin>
@@ -404,14 +404,18 @@ backdrop-filter: blur(10px);
 <body>
 <div class="pop-mask" id="popMask">
     <div class="pop-box" style="background:#fff; border-radius:16px; width:90%; max-width:420px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.2);">
-        <div class="pop-img-area" style="position:relative;">
-            <img src="https://i.ibb.co/cS1Q4472/IMG-1329.jpg" alt="顶部图" style="width:100%;max-height:220px;object-fit:contain;">
+        <div class="pop-img-area" style="position:relative;padding:0;margin:0;">
+            <img src="https://i.ibb.co/cS1Q4472/IMG-1329.jpg" alt="顶部图" style="width:100%;max-height:220px;object-fit:contain;display:block;">
             <div class="pop-close" onclick="closePop()" style="font-size:20px; color:#fff; position:absolute; top:10px; right:12px; cursor:pointer;">×</div>
         </div>
         <div class="pop-content" style="padding:20px;">
             <div class="pop-title" style="font-size:16px; font-weight:500; color:#222; letter-spacing:1px;">预告</div>
             <div class="pop-text-wrap" style="margin:12px 0;">
-                <div class="pop-text-short" style="font-size:14px; color:#444; line-height:1.6;">真龙国际正在预热中，请尽情期待</div>
+                <div class="pop-text-short" style="font-size:14px; color:#444; line-height:1.6;">
+真龙国际正在预热中<br>
+活动福利丰厚<br>
+请敬请期待
+</div>
                 <div class="pop-text-full" style="font-size:14px; color:#444; line-height:1.6; display:none;">请输入文本</div>
             </div>
             <div class="pop-expand" id="expandBtn" onclick="toggleText()" style="font-size:14px; color:#2563eb; margin-bottom:16px; cursor:pointer;">展开全文</div>
