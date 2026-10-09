@@ -662,39 +662,26 @@ function switchTab(activeId){
     <div>精选平台推荐咨询服务，信息仅供参考</div>
     <div>© NG集团·风花雪月</div>
 </div>
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    const expandBtn = document.getElementById('expandBtn');
+    const shortTxt = document.querySelector('.pop-text-short');
+    const fullTxt = document.querySelector('.pop-text-full');
 
+    expandBtn.onclick = function(){
+        if(fullTxt.style.display === "none"){
+            fullTxt.style.display = "block";
+            expandBtn.innerText = "收起";
+        }else{
+            fullTxt.style.display = "none";
+            expandBtn.innerText = "展开全文";
+        }
+    }
+})
+</script>
 </div>
 </body>
-<script>
-const popMask = document.getElementById('popMask');
-const expandBtn = document.getElementById('expandBtn');
-const shortText = document.querySelector('.pop-text-short');
-const fullText = document.querySelector('.pop-text-full');
-let isOpen = false;
 
-if(!sessionStorage.getItem('popClosed')){
-    popMask.style.display = 'flex';
-}
-
-function closePop(){
-    popMask.style.display = 'none';
-    sessionStorage.setItem('popClosed','1');
-}
-
-function toggleText(){
-    if(!isOpen){
-        shortText.style.display = 'none';
-        fullText.style.display = 'block';
-        expandBtn.innerText = '收起全文';
-        isOpen = true;
-    }else{
-        shortText.style.display = 'block';
-        fullText.style.display = 'none';
-        expandBtn.innerText = '展开全文';
-        isOpen = false;
-    }
-}
-</script>
 </html>
 <!-- 后续新增平台，直接复制下面这一块即可 -->
 
