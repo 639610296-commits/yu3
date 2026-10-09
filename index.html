@@ -402,23 +402,23 @@ backdrop-filter: blur(10px);
 </head>
 
 <body>
-<div class="pop-mask" id="popMask">
+<div id="noticeDialog" style="position:fixed;inset:0;background:rgba(0,0,0,0.6);display:flex;align-items:center;justify-content:center;z-index:999;">
     <div class="pop-box" style="background:#fff; border-radius:16px; width:90%; max-width:420px; overflow:hidden; box-shadow:0 10px 40px rgba(0,0,0,0.2);">
         <div class="pop-img-area" style="position:relative;padding:0;margin:0;">
 <img src="https://i.ibb.co/cS1Q4472/IMG-1329.jpg" alt="顶部图" style="width:100%;aspect-ratio:16/9;object-fit:contain;display:block;background:#000;">
         </div>
         <div class="pop-content" style="padding:20px;">
-            <div class="pop-title" style="font-size:16px; font-weight:600; color:#222; letter-spacing:1px;">预告</div>
+            <div class="pop-title" style="font-size:16px; font-weight:600; color:#222; letter-spacing:1px;">🔊预告</div>
             <div class="pop-text-wrap" style="margin:12px 0;">
                 <div class="pop-text-short" style="font-size:14px; color:#444; line-height:1.7;">
-真龙国际正在预热中<br>
-活动福利丰厚<br>
-请敬请期待
+🎉真龙国际正在预热中🔥，活动奖励丰厚,请敬请期待🎁<br>
+关于（对接,返现,一切问题事物）请联系客服<br>
+旺商聊客服【6465401】<br>
                 </div>
-                <div class="pop-text-full" style="font-size:14px; color:#444; line-height:1.7; display:none;">这里粘贴你的完整公告内容</div>
+                <div class="pop-text-full" style="font-size:14px; color:#444; line-height:1.7; display:none;">无</div>
             </div>
-            <div id="expandBtn" style="font-size:14px; color:#2563eb; margin-bottom:16px; cursor:pointer;">展开全文</div>
-            <button id="closeBtn" style="font-size:14px; padding:11px 0; width:100%; border:none; border-radius:8px; background:#111; color:#fff; cursor:pointer;">我知道了</button>
+            <div onclick="toggleText()" style="font-size:14px; color:#2563eb; margin-bottom:16px; cursor:pointer;">展开全文</div>
+            <button onclick="closeDialog()" style="font-size:14px; padding:11px 0; width:100%; border:none; border-radius:8px; background:#111; color:#fff; cursor:pointer;">我知道了</button>
         </div>
     </div>
 </div>
